@@ -33,11 +33,8 @@
 
         <profile>
             <id>homework01-sum-sub-test-suite</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
-                <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw1/SumSubCalculatorTestSuite.xml</test.suite.name>
+                <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw1/SumSubCalcTestSuite.xml</test.suite.name>
             </properties>
         </profile>
 
