@@ -36,6 +36,9 @@
             <properties>
                 <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw1/SumSubCalcTestSuite.xml</test.suite.name>
             </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
         </profile>
 
         <profile>

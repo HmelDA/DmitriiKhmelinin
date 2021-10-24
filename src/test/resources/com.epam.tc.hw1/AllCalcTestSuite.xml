@@ -3,7 +3,7 @@
 <suite name="All Calculator Test Suite">
     <test name="All Calculator Test">
         <packages>
-            <package name="com.epam.tc.hw1"/>
+            <package name="com.epam.tc.hw1.tests"/>
         </packages>
     </test>
 

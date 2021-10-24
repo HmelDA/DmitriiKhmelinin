@@ -4,13 +4,13 @@
 
     <test name="Division Test">
         <classes>
-            <class name="com.epam.tc.hw1.CalcDivTest"/>
+            <class name="com.epam.tc.hw1.tests.CalcDivTest"/>
         </classes>
     </test>
 
     <test name="Multiply Test">
         <classes>
-            <class name="com.epam.tc.hw1.CalcMultTest"/>
+            <class name="com.epam.tc.hw1.tests.CalcMultTest"/>
         </classes>
     </test>
 

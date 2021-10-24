@@ -4,13 +4,13 @@
 
     <test name="SubtractTest Test">
         <classes>
-            <class name="com.epam.tc.hw1.CalcSubTest"/>
+            <class name="com.epam.tc.hw1.tests.CalcSubTest"/>
         </classes>
     </test>
 
     <test name="Sum Test Test">
         <classes>
-            <class name="com.epam.tc.hw1.CalcSumTest"/>
+            <class name="com.epam.tc.hw1.tests.CalcSumTest"/>
         </classes>
     </test>
 

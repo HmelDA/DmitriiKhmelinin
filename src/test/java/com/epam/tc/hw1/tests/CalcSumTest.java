@@ -1,29 +1,20 @@
-package com.epam.tc.hw1;
+package com.epam.tc.hw1.tests;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.testng.annotations.DataProvider;
+import com.epam.tc.hw1.CalcBaseTest;
+import com.epam.tc.hw1.dataprovider.DataProviderForCalcTests;
 import org.testng.annotations.Test;
-
 
 public class CalcSumTest extends CalcBaseTest {
 
-    @DataProvider
-    public Object[][] longdoubleData() {
-        return new Object[][]{
-                {4, -8, -4},
-                {15, 16, 31},
-                {-23, 42, 19}
-        };
-    }
-
-    @Test(dataProvider = "longdoubleData")
+    @Test(dataProviderClass = DataProviderForCalcTests.class, dataProvider = "sumLongDoubleData")
     public void sumDoubleTest(double a, double b, double expected) {
         double actual = calculator.sum(a, b);
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Test(dataProvider = "longdoubleData")
+    @Test(dataProviderClass = DataProviderForCalcTests.class, dataProvider = "sumLongDoubleData")
     public void sumLongTest(long a, long b, long expected) {
         long actual = calculator.sum(a, b);
         assertThat(actual).isEqualTo(expected);
