@@ -17,6 +17,8 @@
         <testng.version>7.4.0</testng.version>
         <assertj.version>3.21.0</assertj.version>
         <checkstyle.version>8.42</checkstyle.version>
+        <webdrivermanager.version>5.0.3</webdrivermanager.version>
+        <selenium-java.version>3.141.59</selenium-java.version>
 
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
     </properties>
@@ -24,7 +26,7 @@
 
 
     <profiles>
-        <profile>
+<!--        <profile>
             <id>homework01-all-calculator-test-suite</id>
             <properties>
                 <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw1/AllCalcTestSuite.xml</test.suite.name>
@@ -36,9 +38,6 @@
             <properties>
                 <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw1/SumSubCalcTestSuite.xml</test.suite.name>
             </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
         </profile>
 
         <profile>
@@ -46,7 +45,7 @@
             <properties>
                 <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw1/MultDivCalcTestSuite.xml</test.suite.name>
             </properties>
-        </profile>
+        </profile>-->
     </profiles>
 
 
@@ -67,12 +66,23 @@
         </dependency>
 
         <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-java.version}</version>
+        </dependency>
+<!--        <dependency>
             <groupId>com.epam.training.center.materials.calculator</groupId>
             <artifactId>calculator</artifactId>
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/resources/com.epam.tc.hw1/calculator-1.0.jar</systemPath>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <build>
@@ -110,14 +120,14 @@
                 </executions>
             </plugin>
 
-            <plugin>
+<!--            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
                     <suiteXmlFiles>${test.suite.name}</suiteXmlFiles>
                 </configuration>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 </project>

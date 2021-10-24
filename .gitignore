@@ -3,4 +3,5 @@ log/
 *.iml
 *.iws
 .idea/
+vcs.xml
 out/
