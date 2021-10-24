@@ -38,9 +38,6 @@
             <properties>
                 <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw1/SumSubCalcTestSuite.xml</test.suite.name>
             </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
         </profile>
 
         <profile>
@@ -48,6 +45,16 @@
             <properties>
                 <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw1/MultDivCalcTestSuite.xml</test.suite.name>
             </properties>
+        </profile>
+
+        <profile>
+            <id>homework02-ex1-ex2-test-suite</id>
+            <properties>
+                <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw2/ExerciseOneTwoTestSuite.xml</test.suite.name>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
         </profile>
     </profiles>
 
