@@ -26,7 +26,7 @@
 
 
     <profiles>
-<!--        <profile>
+        <profile>
             <id>homework01-all-calculator-test-suite</id>
             <properties>
                 <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw1/AllCalcTestSuite.xml</test.suite.name>
@@ -38,6 +38,9 @@
             <properties>
                 <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw1/SumSubCalcTestSuite.xml</test.suite.name>
             </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
         </profile>
 
         <profile>
@@ -45,7 +48,7 @@
             <properties>
                 <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw1/MultDivCalcTestSuite.xml</test.suite.name>
             </properties>
-        </profile>-->
+        </profile>
     </profiles>
 
 
@@ -76,13 +79,13 @@
             <artifactId>selenium-java</artifactId>
             <version>${selenium-java.version}</version>
         </dependency>
-<!--        <dependency>
+        <dependency>
             <groupId>com.epam.training.center.materials.calculator</groupId>
             <artifactId>calculator</artifactId>
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/resources/com.epam.tc.hw1/calculator-1.0.jar</systemPath>
-        </dependency>-->
+        </dependency>
     </dependencies>
 
     <build>
@@ -120,14 +123,14 @@
                 </executions>
             </plugin>
 
-<!--            <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
                     <suiteXmlFiles>${test.suite.name}</suiteXmlFiles>
                 </configuration>
-            </plugin>-->
+            </plugin>
         </plugins>
     </build>
 </project>
