@@ -79,6 +79,7 @@
             <artifactId>selenium-java</artifactId>
             <version>${selenium-java.version}</version>
         </dependency>
+
         <dependency>
             <groupId>com.epam.training.center.materials.calculator</groupId>
             <artifactId>calculator</artifactId>

@@ -1,4 +1,4 @@
-package com.epam.tc.hw2.ex1;
+package com.epam.tc.hw2;
 
 import static org.testng.Assert.assertEquals;
 
@@ -19,10 +19,12 @@ import org.testng.asserts.SoftAssert;
 
 public class SameStepsBaseTest {
 
+/*
     private final String url = "https://jdi-testing.github.io/jdi-light/index.html";
     private final String login = "Roman";
     private final String password = "Jdi1234";
     private final String name = "ROMAN IOVLEV";
+*/
 
     public WebDriverWait webDriverWait;
     public WebDriver webDriver;
@@ -39,17 +41,17 @@ public class SameStepsBaseTest {
     }
 
 
-    @Test
+/*    @Test
     public void sameStepsTest() {
         webDriver.navigate().to(url);
         softAssert.assertTrue(webDriver.getTitle().contains("Home Page"));
-       /* webElement = webDriver.findElement(By.xpath("//span[text() = 'Home']"));
+        webElement = webDriver.findElement(By.xpath("//span[text() = 'Home']"));
         webElement.click();
         webDriverWait = new WebDriverWait(webDriver, 10);
         webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
         assertEquals("EPAM | Enterprise Software Development, Design & Consulting",
-                webDriver.getTitle());*/
-    }
+                webDriver.getTitle());
+    }*/
 
 /*    @AfterMethod
     public void clear() {
