@@ -10,15 +10,22 @@ import org.testng.annotations.DataProvider;
 public class LoginDataProvider {
     @DataProvider
     public static Object[][] sameStepsData() {
-        try (InputStream loginData = new FileInputStream("com.epam.tc.hw2/login.properties")) {
+        try (InputStream loginData = new FileInputStream("src/test/resources/com.epam.tc.hw2/login.properties")) {
             Properties forLogin = new Properties();
+
+            if (loginData == null) {
+                System.out.println("Sorry, unable to find login.properties");
+                return null;
+            }
+
             forLogin.load(loginData);
+
             return new Object[][] {
                     {
-                            forLogin.getProperty("url"),
-                            forLogin.getProperty("login"),
-                            forLogin.getProperty("password"),
-                            forLogin.getProperty("name")
+                            forLogin.getProperty("test.url"),
+                            forLogin.getProperty("test.login"),
+                            forLogin.getProperty("test.password"),
+                            forLogin.getProperty("test.name")
                     }
             };
         } catch (IOException ex) {
