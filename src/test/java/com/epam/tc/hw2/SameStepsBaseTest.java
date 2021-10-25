@@ -1,27 +1,22 @@
 package com.epam.tc.hw2;
 
-import com.epam.tc.hw2.locators.Locators;
-
 import static com.epam.tc.hw2.locators.Locators.*;
-import static org.testng.Assert.assertEquals;
 
 import com.epam.tc.hw2.dataprovider.LoginDataProvider;
-import com.epam.tc.hw2.locators.Locators;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 
 public class SameStepsBaseTest {
 
-    public WebDriverWait webDriverWait;
     public WebDriver webDriver;
     public SoftAssert softAssert;
     public WebElement webElement;
@@ -41,8 +36,9 @@ public class SameStepsBaseTest {
     public void sameStepsTest(String url, String login, String password, String name) {
         //1. Open test site by URL
         webDriver.navigate().to(url);
-/*        new WebDriverWait(webDriver, webDriverWait).until(
-                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));*/
+        new WebDriverWait(webDriver, 10).until(
+                webDriver -> ((JavascriptExecutor) webDriver)
+                        .executeScript("return document.readyState").equals("complete"));
         softAssert.assertTrue(webDriver.getTitle().equals(url));
         //2. Assert Browser title
         softAssert.assertTrue(webDriver.getTitle().contains("Home Page"));
@@ -52,13 +48,10 @@ public class SameStepsBaseTest {
         webDriver.findElement(PASSWORD_FIELD.id()).sendKeys(password);
         webDriver.findElement(LOGIN_BUTTON.id()).click();
         //4. Assert Username is loggined
-        webElement = webDriver.findElement(USER_NAME.id());
+        webElement = new WebDriverWait(webDriver, 10).until(
+                element -> (webDriver.findElement(USER_NAME.id())));
         softAssert.assertTrue(webElement.isDisplayed());
-        softAssert.assertTrue(webElement.equals(name));
+        softAssert.assertEquals(webElement.getText(), name);
+        //softAssert.assertAll();
     }
-
-/*    @AfterMethod
-    public void clear() {
-        webDriver.close();
-    }*/
 }
