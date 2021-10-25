@@ -22,10 +22,10 @@ public class LoginDataProvider {
 
             return new Object[][] {
                     {
-                            forLogin.getProperty("test.url"),
-                            forLogin.getProperty("test.login"),
-                            forLogin.getProperty("test.password"),
-                            forLogin.getProperty("test.name")
+                            forLogin.getProperty("testSite.url"),
+                            forLogin.getProperty("testUser.login"),
+                            forLogin.getProperty("testUser.password"),
+                            forLogin.getProperty("testUser.name")
                     }
             };
         } catch (IOException ex) {
