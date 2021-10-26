@@ -9,8 +9,11 @@ public enum Locators {
     PASSWORD_FIELD("password"),
     LOGIN_BUTTON("login-button"),
     USER_NAME("user-name"),
-    //Header locators
-    HEADER_SECTION("uui-navigation");
+    //Header locator
+    HEADER_SECTION("uui-navigation"),
+    //Benefit icons
+    BENEFIT_ICONS("benefit-icon"),
+    BENEFIT_ICONS_TEXT("benefit-txt");
 
 
     String locator;

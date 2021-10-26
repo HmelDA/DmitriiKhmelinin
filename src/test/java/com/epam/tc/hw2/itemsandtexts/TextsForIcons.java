@@ -1,10 +1,14 @@
 package com.epam.tc.hw2.itemsandtexts;
 
 public enum TextsForIcons {
-    MICROSCOPE("To include good practices and ideas from successful EPAM project"),
-    HEADPHONES("To be flexible and customizable"),
-    MONITOR("To be multiplatform"),
-    ROCKET("Already have good base (about 20 internal and some external projects), wish to get more…");
+    MICROSCOPE_TEXT("To include good practices\nand ideas from successful\nEPAM project"),
+    HEADPHONES_TEXT("To be flexible and\n"
+            + "customizable"),
+    MONITOR_TEXT("To be multiplatform"),
+    ROCKET_TEXT("Already have good base\n"
+            + "(about 20 internal and\n"
+            + "some external projects),\n"
+            + "wish to get more…");
 
     String text;
 
