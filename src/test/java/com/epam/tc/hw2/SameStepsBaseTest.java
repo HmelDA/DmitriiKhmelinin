@@ -10,6 +10,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -22,24 +24,24 @@ public class SameStepsBaseTest {
     public WebElement webElement;
 
 
-    @BeforeMethod
+    @BeforeClass
     public void setupClass() {
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
         softAssert = new SoftAssert();
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //1. Open test site by URL
+        webDriver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
     }
 
 
     @Test(dataProviderClass = LoginDataProvider.class, dataProvider = "sameStepsData")
     public void sameStepsTest(String url, String login, String password, String name) {
-        //1. Open test site by URL
-        webDriver.navigate().to(url);
         new WebDriverWait(webDriver, 10).until(
                 webDriver -> ((JavascriptExecutor) webDriver)
                         .executeScript("return document.readyState").equals("complete"));
-        softAssert.assertTrue(webDriver.getTitle().equals(url));
+        softAssert.assertEquals(webDriver.getCurrentUrl(), url);
         //2. Assert Browser title
         softAssert.assertTrue(webDriver.getTitle().contains("Home Page"));
         //3. Perform login
@@ -52,6 +54,7 @@ public class SameStepsBaseTest {
                 element -> (webDriver.findElement(USER_NAME.id())));
         softAssert.assertTrue(webElement.isDisplayed());
         softAssert.assertEquals(webElement.getText(), name);
-        //softAssert.assertAll();
+        softAssert.assertAll();
+
     }
 }

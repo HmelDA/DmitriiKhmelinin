@@ -8,8 +8,9 @@ public enum Locators {
     LOGIN_FIELD("name"),
     PASSWORD_FIELD("password"),
     LOGIN_BUTTON("login-button"),
-    USER_NAME("user-name");
-
+    USER_NAME("user-name"),
+    //Header locators
+    HEADER_SECTION("uui-navigation");
 
 
     String locator;
