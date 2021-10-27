@@ -1,8 +1,7 @@
 package com.epam.tc.hw2;
 
-import static com.epam.tc.hw2.locators.Locators.*;
-
 import com.epam.tc.hw2.dataprovider.LoginDataProvider;
+import com.epam.tc.hw2.locators.LocatorsVTwo;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.JavascriptExecutor;
@@ -10,9 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -45,16 +43,23 @@ public class SameStepsBaseTest {
         //2. Assert Browser title
         softAssert.assertTrue(webDriver.getTitle().contains("Home Page"));
         //3. Perform login
-        webDriver.findElement(USER_ICON.id()).click();
-        webDriver.findElement(LOGIN_FIELD.id()).sendKeys(login);
-        webDriver.findElement(PASSWORD_FIELD.id()).sendKeys(password);
-        webDriver.findElement(LOGIN_BUTTON.id()).click();
+        //webDriver.findElement(Locators.USER_ICON.id()).click();
+        webDriver.findElement(LocatorsVTwo.USER_ICON.get()).click();
+        webDriver.findElement(LocatorsVTwo.LOGIN_FIELD.get()).sendKeys(login);
+        webDriver.findElement(LocatorsVTwo.PASSWORD_FIELD.get()).sendKeys(password);
+        webDriver.findElement(LocatorsVTwo.LOGIN_BUTTON.get()).click();
         //4. Assert Username is loggined
         webElement = new WebDriverWait(webDriver, 10).until(
-                element -> (webDriver.findElement(USER_NAME.id())));
+                element -> (webDriver.findElement(LocatorsVTwo.USER_NAME.get())));
         softAssert.assertTrue(webElement.isDisplayed());
         softAssert.assertEquals(webElement.getText(), name);
         softAssert.assertAll();
+    }
 
+    @AfterClass
+    public void clear() {
+        softAssert = null;
+        webElement = null;
+        webDriver.close();
     }
 }

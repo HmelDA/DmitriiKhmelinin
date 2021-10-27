@@ -1,5 +1,7 @@
 package com.epam.tc.hw2.itemsandtexts;
 
+import org.openqa.selenium.By;
+
 import java.util.List;
 
 public class TextsNotEnums {
@@ -18,11 +20,20 @@ public class TextsNotEnums {
             "Already have good base\n"
             + "(about 20 internal and\n"
             + "some external projects),\n"
-            + "wish to get more…");
+            + "wish to get more…"
+    );
 
-    public static List<String> LEFT_SECTION = List.of("Home",
+    public static List<String> LEFT_SECTION = List.of(
+            "Home",
             "Contact form",
             "Service",
             "Metals & Colors",
-            "Elements packs");
+            "Elements packs"
+    );
+
+    public static final String FRAME_BUTTON_IFRAME = "frame";
+
+    public static final String FRAME_BUTTON_VALUE = "value";
+
+    public static final String FRAME_BUTTON_TEXT = "Frame Button";
 }

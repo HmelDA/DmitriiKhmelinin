@@ -21,7 +21,7 @@ public enum HeaderSection {
     static {
         VALUES = new ArrayList<>();
         for (HeaderSection headerSection : HeaderSection.values()) {
-            VALUES.add(headerSection.value + "\n");
+            VALUES.add(headerSection.value);
         }
     }
 
@@ -32,18 +32,4 @@ public enum HeaderSection {
     public static List<String> getValues() {
         return Collections.unmodifiableList(VALUES);
     }
-
 }
-
-/*    private static final List<String> VALUES;
-    static {
-        VALUES = new ArrayList<>();
-        for (HeaderSection enums : HeaderSection.values()) {
-            VALUES.add(HeaderSection.item);
-        }
-    }*/
-
-/*    public static List<String> getValues() {
-        List<HeaderSection> items = Arrays.asList(HeaderSection.values());
-        return items;
-    }*/

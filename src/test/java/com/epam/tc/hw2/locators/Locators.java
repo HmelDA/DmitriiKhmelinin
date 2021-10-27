@@ -3,6 +3,8 @@ package com.epam.tc.hw2.locators;
 import org.openqa.selenium.By;
 
 public enum Locators {
+    //ex1
+
     //Login locators
     USER_ICON("user-icon"),
     LOGIN_FIELD("name"),
@@ -11,10 +13,17 @@ public enum Locators {
     USER_NAME("user-name"),
     //Header locator
     HEADER_SECTION("uui-navigation"),
-    //Benefit icons
+    //Benefit icons + texts
     BENEFIT_ICONS("benefit-icon"),
-    BENEFIT_ICONS_TEXT("benefit-txt");
+    BENEFIT_ICONS_TEXT("benefit-txt"),
+    //Frame button
+    FRAME_BUTTON_IFRAME("frame"),
+    FRAME_BUTTON("frame-button"),
+    //Left Section
+    LEFT_SECTION("#mCSB_1_container > ul > li");
 
+    //ex2
+    //
 
     String locator;
 
