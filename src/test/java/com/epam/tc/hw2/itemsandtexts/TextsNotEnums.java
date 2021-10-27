@@ -1,10 +1,15 @@
 package com.epam.tc.hw2.itemsandtexts;
 
-import org.openqa.selenium.By;
-
 import java.util.List;
 
 public class TextsNotEnums {
+
+    public static String URL = "https://jdi-testing.github.io/jdi-light/index.html";
+    public static String DIFFERENT_ELEMENTS_URL = "https://jdi-testing.github.io/jdi-light/different-elements.html";
+
+
+    public static String HOME_PAGE = "Home Page";
+
     public static String HEADER_SECTION = "HOME\nCONTACT FORM\nSERVICE\nMETALS & COLORS";
 
     public static List<String> TEXTS_FOR_BENEFITS = List.of(
@@ -36,4 +41,11 @@ public class TextsNotEnums {
     public static final String FRAME_BUTTON_VALUE = "value";
 
     public static final String FRAME_BUTTON_TEXT = "Frame Button";
+
+    public static final List<String> LOG_CHANGES = List.of(
+            "Colors: value changed to Yellow",
+            "metal: value changed to Selen",
+            "Wind: condition changed to true",
+            "Water: condition changed to true"
+    );
 }

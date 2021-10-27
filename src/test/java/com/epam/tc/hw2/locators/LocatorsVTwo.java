@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 
 public enum LocatorsVTwo {
     //ex1
-
     //Login locators
     USER_ICON(By.id("user-icon")),
     LOGIN_FIELD(By.id("name")),
@@ -20,10 +19,23 @@ public enum LocatorsVTwo {
     FRAME_BUTTON_IFRAME(By.id("frame")),
     FRAME_BUTTON(By.id("frame-button")),
     //Left Section
-    LEFT_SECTION(By.cssSelector("#mCSB_1_container > ul > li"));
+    LEFT_SECTION(By.cssSelector("#mCSB_1_container > ul > li")),
 
     //ex2
-    //
+    //Service -> Different Elements Page
+    SERVICE(By.linkText("SERVICE")),
+    DIFFERENT_ELEMENTS(By.linkText("DIFFERENT ELEMENTS")),
+    //Checkboxes
+    WATER_CHECKBOX(By.xpath("//label[contains(.,'Water')]")),
+    WIND_CHECKBOX(By.xpath("//label[contains(.,'Wind')]")),
+    SELEN_RADIO(By.xpath("//label[contains(.,'Selen')]")),
+    //Dropdown
+    DROPDOWN_COLORS(By.cssSelector("select.uui-form-element")),
+    YELLOW(By.xpath("//option[contains(.,'Yellow')]")),
+    //Logs
+    LOGS_PANEL(By.xpath("//ul[@class='panel-body-list logs']/li"));
+
+
 
     By locator;
 

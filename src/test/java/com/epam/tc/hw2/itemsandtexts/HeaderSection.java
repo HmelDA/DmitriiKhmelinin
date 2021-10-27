@@ -1,7 +1,6 @@
 package com.epam.tc.hw2.itemsandtexts;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -25,7 +24,7 @@ public enum HeaderSection {
         }
     }
 
-    private HeaderSection(String value) {
+    HeaderSection(String value) {
         this.value = value;
     }
 

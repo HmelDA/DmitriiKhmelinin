@@ -1,6 +1,7 @@
 package com.epam.tc.hw2;
 
 import com.epam.tc.hw2.dataprovider.LoginDataProvider;
+import com.epam.tc.hw2.itemsandtexts.TextsNotEnums;
 import com.epam.tc.hw2.locators.LocatorsVTwo;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.util.concurrent.TimeUnit;
@@ -30,7 +31,7 @@ public class SameStepsBaseTest {
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         //1. Open test site by URL
-        webDriver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
+        webDriver.navigate().to(TextsNotEnums.URL);
     }
 
 
@@ -41,7 +42,7 @@ public class SameStepsBaseTest {
                         .executeScript("return document.readyState").equals("complete"));
         softAssert.assertEquals(webDriver.getCurrentUrl(), url);
         //2. Assert Browser title
-        softAssert.assertTrue(webDriver.getTitle().contains("Home Page"));
+        softAssert.assertTrue(webDriver.getTitle().contains(TextsNotEnums.HOME_PAGE));
         //3. Perform login
         //webDriver.findElement(Locators.USER_ICON.id()).click();
         webDriver.findElement(LocatorsVTwo.USER_ICON.get()).click();

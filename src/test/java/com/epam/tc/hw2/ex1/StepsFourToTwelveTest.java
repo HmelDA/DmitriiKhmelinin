@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 public class StepsFourToTwelveTest extends SameStepsBaseTest {
 
     @Test
-    public void exOneRestTest() {
+    public void exOneRemainingStepsTest() {
         //5. Assert that there are 4 items on the header section are displayed and they have proper texts
         softAssert.assertTrue(webDriver.findElement(LocatorsVTwo.HEADER_SECTION.get()).isDisplayed());
         softAssert.assertEquals(webDriver.findElement(LocatorsVTwo.HEADER_SECTION.get()).getText(),
@@ -19,11 +19,11 @@ public class StepsFourToTwelveTest extends SameStepsBaseTest {
         //6. Assert that there are 4 images on the Index Page and they are displayed
         softAssert.assertEquals(webDriver.findElements(LocatorsVTwo.BENEFIT_ICONS.get()).size(), 4);
         // 7. Assert that there are 4 texts on the Index Page under icons and they have proper text
-        List<String> benefits = new ArrayList<>();
+        List<String> textsToCompare = new ArrayList<>();
         for (WebElement webElement : webDriver.findElements(LocatorsVTwo.BENEFIT_ICONS_TEXT.get())) {
-            benefits.add(webElement.getText());
+            textsToCompare.add(webElement.getText());
         }
-        softAssert.assertEquals(benefits, TextsNotEnums.TEXTS_FOR_BENEFITS);
+        softAssert.assertEquals(textsToCompare, TextsNotEnums.TEXTS_FOR_BENEFITS);
         //8. Assert that there is the iframe with “Frame Button” exist
         softAssert.assertTrue(webDriver.findElement(LocatorsVTwo.FRAME_BUTTON_IFRAME.get()).isDisplayed());
         //9. Switch to the iframe and check that there is “Frame Button” in the iframe
@@ -33,11 +33,11 @@ public class StepsFourToTwelveTest extends SameStepsBaseTest {
         //10. Switch to original window back
         webDriver.switchTo().parentFrame();
         //11. Assert that there are 5 items in the Left Section are displayed and they have proper text
-        benefits.clear();
+        textsToCompare.clear();
         for (WebElement webElement : webDriver.findElements(LocatorsVTwo.LEFT_SECTION.get())) {
-            benefits.add(webElement.getText());
+            textsToCompare.add(webElement.getText());
         }
-        softAssert.assertEquals(benefits, TextsNotEnums.LEFT_SECTION);
+        softAssert.assertEquals(textsToCompare, TextsNotEnums.LEFT_SECTION);
         //12. Close Browser
         softAssert.assertAll();
     }
