@@ -1,8 +1,8 @@
-package com.epam.tc.hw2.itemsandtexts;
+package com.epam.tc.hw2.util;
 
 import java.util.List;
 
-public class TextsNotEnums {
+public class TextsForComparison {
 
     public static String URL = "https://jdi-testing.github.io/jdi-light/index.html";
     public static String DIFFERENT_ELEMENTS_URL = "https://jdi-testing.github.io/jdi-light/different-elements.html";

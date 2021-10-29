@@ -20,7 +20,7 @@ public class LoginDataProvider {
 
             forLogin.load(loginData);
 
-            return new Object[][] {
+            return new Object[][]{
                     {
                             forLogin.getProperty("testSite.url"),
                             forLogin.getProperty("testUser.login"),

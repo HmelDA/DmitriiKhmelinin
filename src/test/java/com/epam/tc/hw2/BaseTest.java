@@ -1,8 +1,8 @@
 package com.epam.tc.hw2;
 
 import com.epam.tc.hw2.dataprovider.LoginDataProvider;
-import com.epam.tc.hw2.itemsandtexts.TextsNotEnums;
-import com.epam.tc.hw2.locators.LocatorsVTwo;
+import com.epam.tc.hw2.util.LocatorsMainPage;
+import com.epam.tc.hw2.util.TextsForComparison;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.JavascriptExecutor;
@@ -16,11 +16,10 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 
-public class SameStepsBaseTest {
+public class BaseTest {
 
     public WebDriver webDriver;
     public SoftAssert softAssert;
-    public WebElement webElement;
 
 
     @BeforeClass
@@ -29,11 +28,10 @@ public class SameStepsBaseTest {
         webDriver = new ChromeDriver();
         softAssert = new SoftAssert();
         webDriver.manage().window().maximize();
-        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         //1. Open test site by URL
-        webDriver.navigate().to(TextsNotEnums.URL);
+        webDriver.navigate().to(TextsForComparison.URL);
     }
-
 
     @Test(dataProviderClass = LoginDataProvider.class, dataProvider = "sameStepsData")
     public void sameStepsTest(String url, String login, String password, String name) {
@@ -42,25 +40,23 @@ public class SameStepsBaseTest {
                         .executeScript("return document.readyState").equals("complete"));
         softAssert.assertEquals(webDriver.getCurrentUrl(), url);
         //2. Assert Browser title
-        softAssert.assertTrue(webDriver.getTitle().contains(TextsNotEnums.HOME_PAGE));
+        softAssert.assertTrue(webDriver.getTitle().contains(TextsForComparison.HOME_PAGE));
         //3. Perform login
-        //webDriver.findElement(Locators.USER_ICON.id()).click();
-        webDriver.findElement(LocatorsVTwo.USER_ICON.get()).click();
-        webDriver.findElement(LocatorsVTwo.LOGIN_FIELD.get()).sendKeys(login);
-        webDriver.findElement(LocatorsVTwo.PASSWORD_FIELD.get()).sendKeys(password);
-        webDriver.findElement(LocatorsVTwo.LOGIN_BUTTON.get()).click();
+        webDriver.findElement(LocatorsMainPage.USER_ICON.get()).click();
+        webDriver.findElement(LocatorsMainPage.LOGIN_FIELD.get()).sendKeys(login);
+        webDriver.findElement(LocatorsMainPage.PASSWORD_FIELD.get()).sendKeys(password);
+        webDriver.findElement(LocatorsMainPage.LOGIN_BUTTON.get()).click();
         //4. Assert Username is loggined
-        webElement = new WebDriverWait(webDriver, 10).until(
-                element -> (webDriver.findElement(LocatorsVTwo.USER_NAME.get())));
-        softAssert.assertTrue(webElement.isDisplayed());
-        softAssert.assertEquals(webElement.getText(), name);
+        WebElement userName = new WebDriverWait(webDriver, 10).until(
+                element -> (webDriver.findElement(LocatorsMainPage.USER_NAME.get())));
+        softAssert.assertTrue(userName.isDisplayed());
+        softAssert.assertEquals(userName.getText(), name);
         softAssert.assertAll();
     }
 
     @AfterClass
     public void clear() {
         softAssert = null;
-        webElement = null;
         webDriver.close();
     }
 }
