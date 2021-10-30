@@ -1,33 +1,29 @@
-package com.epam.tc.hw3;
+package com.epam.tc.hw3.test;
 
 import com.epam.tc.hw3.dataprovider.LoginDataProvider;
+import com.epam.tc.hw3.driver.DriverSingleton;
 import com.epam.tc.hw3.util.LocatorsMainPage;
 import com.epam.tc.hw3.util.TextsForComparison;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import java.util.concurrent.TimeUnit;
+
 
 public class BaseTest {
 
-    public WebDriver webDriver;
     public SoftAssert softAssert;
 
 
     @BeforeClass
     public void setupClass() {
-        WebDriverManager.chromedriver().setup();
-        webDriver = new ChromeDriver();
+        DriverSingleton.getWebDriver();
         softAssert = new SoftAssert();
-        webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         //1. Open test site by URL
         webDriver.navigate().to(TextsForComparison.URL);
@@ -60,6 +56,6 @@ public class BaseTest {
     @AfterClass
     public void clear() {
         softAssert = null;
-        webDriver.close();
+        DriverSingleton.closeDriver();
     }
 }

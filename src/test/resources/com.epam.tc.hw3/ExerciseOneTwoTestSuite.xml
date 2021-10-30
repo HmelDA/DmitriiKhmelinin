@@ -3,8 +3,8 @@
 <suite name="Exercise 1, 2 Test Suite">
     <test name="Exercise 1, 2 Test">
         <packages>
-            <package name="com.epam.tc.hw2.ex1"/>
-            <package name="com.epam.tc.hw2.ex2"/>
+            <package name="com.epam.tc.hw3.test.ex1"/>
+            <package name="com.epam.tc.hw3.test.ex2"/>
         </packages>
     </test>
 </suite>

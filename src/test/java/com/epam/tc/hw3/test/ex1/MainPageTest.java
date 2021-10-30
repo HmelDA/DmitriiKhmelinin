@@ -1,4 +1,4 @@
-package com.epam.tc.hw3.ex1;
+package com.epam.tc.hw3.test.ex1;
 
 import com.epam.tc.hw3.BaseTest;
 import com.epam.tc.hw3.util.LocatorsMainPage;

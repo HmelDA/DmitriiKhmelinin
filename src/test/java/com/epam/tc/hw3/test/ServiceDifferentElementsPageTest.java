@@ -1,14 +1,15 @@
-package com.epam.tc.hw3.ex2;
+package com.epam.tc.hw3.test;
 
 import com.epam.tc.hw3.BaseTest;
 import com.epam.tc.hw3.util.LocatorsDifElPage;
 import com.epam.tc.hw3.util.TextsForComparison;
-import java.util.stream.Collectors;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+
+import java.util.stream.Collectors;
 
 
 public class ServiceDifferentElementsPageTest extends BaseTest {
