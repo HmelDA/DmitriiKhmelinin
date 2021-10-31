@@ -1,13 +1,13 @@
 package com.epam.tc.hw3.test.ex1;
 
-import com.epam.tc.hw3.BaseTest;
+import com.epam.tc.hw3.test.BaseTest2;
 import com.epam.tc.hw3.util.LocatorsMainPage;
 import com.epam.tc.hw3.util.TextsForComparison;
 import java.util.stream.Collectors;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-public class MainPageTest extends BaseTest {
+public class MainPageTest extends BaseTest2 {
 
     @Test
     public void sectionsImagesIframeTest() {

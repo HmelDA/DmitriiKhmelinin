@@ -32,4 +32,5 @@ public enum LocatorsMainPage {
     public By get() {
         return locator;
     }
+
 }

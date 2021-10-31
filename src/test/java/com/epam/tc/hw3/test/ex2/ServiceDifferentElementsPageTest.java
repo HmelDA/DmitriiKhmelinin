@@ -1,6 +1,6 @@
 package com.epam.tc.hw3.test.ex2;
 
-import com.epam.tc.hw3.BaseTest;
+import com.epam.tc.hw3.test.BaseTest2;
 import com.epam.tc.hw3.util.LocatorsDifElPage;
 import com.epam.tc.hw3.util.TextsForComparison;
 import java.util.stream.Collectors;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 
-public class ServiceDifferentElementsPageTest extends BaseTest {
+public class ServiceDifferentElementsPageTest extends BaseTest2 {
 
     @Test
     public void checkboxesRadioDropdownLogsTest() {

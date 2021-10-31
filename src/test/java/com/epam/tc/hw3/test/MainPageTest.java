@@ -1,6 +1,5 @@
 package com.epam.tc.hw3.test;
 
-import com.epam.tc.hw3.BaseTest;
 import com.epam.tc.hw3.util.LocatorsMainPage;
 import com.epam.tc.hw3.util.TextsForComparison;
 import org.openqa.selenium.WebElement;

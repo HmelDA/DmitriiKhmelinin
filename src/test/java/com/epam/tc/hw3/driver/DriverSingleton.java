@@ -4,6 +4,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class DriverSingleton {
 
     private static WebDriver webDriver;
@@ -16,6 +18,7 @@ public class DriverSingleton {
             WebDriverManager.chromedriver().setup();
             webDriver = new ChromeDriver();
             webDriver.manage().window().maximize();
+            webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         }
         return webDriver;
     }
