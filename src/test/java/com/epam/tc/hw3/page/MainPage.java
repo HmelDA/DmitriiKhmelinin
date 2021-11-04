@@ -42,20 +42,20 @@ public class MainPage extends AbstractPage {
         return userName.getText();
     }
 
-    public WebElement locatorUserName() {
+    public WebElement getLocatorUserName() {
         return userName;
     }
 
-    public int benefitIconsQuantity() {
+    public int getBenefitIconsQuantity() {
         return benefitIcons.size();
     }
 
-    public List<String> benefitIconsText() {
+    public List<String> getBenefitIconsText() {
         return benefitText.stream().map(WebElement::getText)
                 .collect(Collectors.toList());
     }
 
-    public Boolean benefitIconsPresented() {
+    public Boolean checkThatBenefitIconsPresented() {
         return benefitIcons.stream().allMatch(WebElement::isDisplayed);
     }
 
@@ -67,7 +67,7 @@ public class MainPage extends AbstractPage {
         webDriver.switchTo().frame(iframe);
     }
 
-    public String frameButtonText() {
+    public String getFrameButtonText() {
         return frameButton.getAttribute(TextsForComparison.FRAME_BUTTON_VALUE);
     }
 
@@ -79,16 +79,16 @@ public class MainPage extends AbstractPage {
         return headerSection;
     }
 
-    public String headerSectionText() {
+    public String getHeaderSectionText() {
         return headerSection.getText();
     }
 
-    public List<String> leftSectionText() {
+    public List<String> getLeftSectionText() {
         return leftSection.stream().map(WebElement::getText)
                 .collect(Collectors.toList());
     }
 
-    public ServiceDifferentElementsPage toDifElPage() {
+    public ServiceDifferentElementsPage toDifferentElementsPage() {
         return new ServiceDifferentElementsPage(webDriver);
     }
 }

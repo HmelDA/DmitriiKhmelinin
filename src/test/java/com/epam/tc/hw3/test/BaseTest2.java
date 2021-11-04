@@ -44,7 +44,7 @@ public class BaseTest2 {
         //3. Perform login
         mainPage = loginPage.login(testUser);
         //4. Assert Username is loggined
-        softAssert.assertTrue(mainPage.locatorUserName().isDisplayed());
+        softAssert.assertTrue(mainPage.getLocatorUserName().isDisplayed());
         softAssert.assertEquals(mainPage.getUserName(), testUser.getName());
         softAssert.assertAll();
     }

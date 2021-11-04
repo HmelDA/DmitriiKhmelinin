@@ -9,7 +9,7 @@ public abstract class AbstractPage {
 
     protected abstract AbstractPage openPage();
 
-    protected final int wait = 5;
+    protected static final int WAIT = 5;
 
     protected AbstractPage(WebDriver webDriver) {
         this.webDriver = DriverSingleton.getWebDriver();

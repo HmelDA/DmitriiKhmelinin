@@ -14,13 +14,10 @@ public class LoginPage extends AbstractPage {
 
     @FindBy(id = "user-icon")
     private WebElement userIcon;
-
     @FindBy(id = "name")
     private WebElement loginField;
-
     @FindBy(id = "password")
     private WebElement passwordField;
-
     @FindBy(id = "login-button")
     private WebElement loginButton;
 
@@ -31,7 +28,7 @@ public class LoginPage extends AbstractPage {
 
     public LoginPage openPage() {
         webDriver.navigate().to(URL);
-        new WebDriverWait(webDriver, 10).until(
+        new WebDriverWait(webDriver, WAIT * 2).until(
                 webDriver -> ((JavascriptExecutor) webDriver)
                         .executeScript("return document.readyState").equals("complete"));
         return this;

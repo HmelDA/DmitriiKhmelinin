@@ -15,22 +15,18 @@ public class ServiceDifferentElementsPage extends AbstractPage {
 
     @FindBy(linkText = "SERVICE")
     private WebElement service;
-
     @FindBy(linkText = "DIFFERENT ELEMENTS")
     private WebElement differentElements;
 
     @FindBy(xpath = "//label[contains(.,'Water')]")
     private WebElement waterCheckbox;
-
     @FindBy(xpath = "//label[contains(.,'Wind')]")
     private WebElement windCheckbox;
-
     @FindBy(xpath = "//label[contains(.,'Selen')]")
     private WebElement selenRadio;
 
     @FindBy(css = "select.uui-form-element")
     private WebElement dropdownColors;
-
     @FindBy(xpath = "//option[contains(.,'Yellow')]")
     private WebElement yellow;
 
@@ -48,32 +44,32 @@ public class ServiceDifferentElementsPage extends AbstractPage {
 
     public void toDifferentElements() {
         differentElements.click();
-        new WebDriverWait(webDriver, 10).until(
+        new WebDriverWait(webDriver, WAIT * 2).until(
                 webDriver -> ((JavascriptExecutor) webDriver)
                         .executeScript("return document.readyState").equals("complete"));
     }
 
-    public String differentElementsURL() {
+    public String getDifferentElementsURL() {
         return webDriver.getCurrentUrl();
     }
 
     public void selectWaterCheckbox() {
         waterCheckbox.click();
-        new WebDriverWait(webDriver, 5).until(
+        new WebDriverWait(webDriver, WAIT).until(
                 element -> (ExpectedConditions
                         .elementSelectionStateToBe(waterCheckbox, true)));
     }
 
     public void selectWindCheckbox() {
         windCheckbox.click();
-        new WebDriverWait(webDriver, 5).until(
+        new WebDriverWait(webDriver, WAIT).until(
                 element -> (ExpectedConditions
                         .elementSelectionStateToBe(windCheckbox, true)));
     }
 
     public void selectSelenRadio() {
         selenRadio.click();
-        new WebDriverWait(webDriver, 5).until(
+        new WebDriverWait(webDriver, WAIT).until(
                 element -> (ExpectedConditions
                         .elementSelectionStateToBe(selenRadio, true)));
     }
@@ -84,7 +80,7 @@ public class ServiceDifferentElementsPage extends AbstractPage {
 
     public void selectYellow() {
         yellow.click();
-        new WebDriverWait(webDriver, 5).until(
+        new WebDriverWait(webDriver, WAIT).until(
                 element -> (ExpectedConditions
                         .elementSelectionStateToBe(yellow, true)));
     }
