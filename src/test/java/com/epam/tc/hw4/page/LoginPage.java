@@ -2,6 +2,7 @@ package com.epam.tc.hw4.page;
 
 import com.epam.tc.hw4.model.User;
 import com.epam.tc.hw4.service.LoginDataProvider;
+import io.qameta.allure.Step;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,6 +27,7 @@ public class LoginPage extends AbstractPage {
         PageFactory.initElements(this.webDriver, this);
     }
 
+    @Step("Opening the page")
     public LoginPage openPage() {
         webDriver.navigate().to(URL);
         new WebDriverWait(webDriver, WAIT * 2).until(
@@ -34,20 +36,26 @@ public class LoginPage extends AbstractPage {
         return this;
     }
 
-
+    @Step("Getting the url of page")
     public String getUrl() {
+        logger.info("Login page opened");
         return webDriver.getCurrentUrl();
     }
 
+    @Step("Getting the title of page")
     public String getTitle() {
+        logger.info("Got url");
         return webDriver.getTitle();
     }
 
+    @Step("Performing login")
     public MainPage login(User user) {
+        logger.info("Title checked");
         userIcon.click();
         loginField.sendKeys(user.getLogin());
         passwordField.sendKeys(user.getPassword());
         loginButton.click();
+        logger.info("Performing login...");
         return new MainPage(webDriver);
     }
 }

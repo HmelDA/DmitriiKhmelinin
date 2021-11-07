@@ -1,6 +1,7 @@
 package com.epam.tc.hw4.page;
 
 import com.epam.tc.hw4.util.TextsForComparison;
+import io.qameta.allure.Step;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.openqa.selenium.WebDriver;
@@ -39,54 +40,82 @@ public class MainPage extends AbstractPage {
         return null;
     }
 
-    public String getUserName() {
-        return userName.getText();
-    }
-
+    @Step("Getting locator of the user name")
     public WebElement getLocatorUserName() {
+        logger.info("Login performed");
         return userName;
     }
 
+    @Step("Getting user name")
+    public String getUserName() {
+        logger.info("Username is displayed");
+        return userName.getText();
+    }
+
+    @Step("Checking presence of Header Section")
+    public WebElement getHeaderSection() {
+        logger.info("Username is checked");
+        return headerSection;
+    }
+
+    @Step("Checking Header Section text")
+    public String getHeaderSectionText() {
+        logger.info("Header Section is displayed");
+        return headerSection.getText();
+    }
+
+    @Step("Checking Benefit Icons quantity")
     public int getBenefitIconsQuantity() {
+        logger.info("Header Section is checked");
         return benefitIcons.size();
     }
 
+    @Step("Checking Benefit Icons presence")
+    public Boolean checkThatBenefitIconsPresented() {
+        logger.info("Benefit Icons quantity is checked");
+        return benefitIcons.stream().allMatch(WebElement::isDisplayed);
+    }
+
+    @Step("Checking Benefit Icons text")
     public List<String> getBenefitIconsText() {
+        logger.info("Benefit Icons are presented");
         return benefitText.stream().map(WebElement::getText)
                 .collect(Collectors.toList());
     }
 
-    public Boolean checkThatBenefitIconsPresented() {
-        return benefitIcons.stream().allMatch(WebElement::isDisplayed);
-    }
-
+    @Step("Checking Iframe Button presence")
     public WebElement getIframe() {
+        logger.info("Benefit Icons text checked");
         return iframe;
     }
 
+    @Step("Switching to Iframe Button")
     public void switchToFrameButton() {
+        logger.info("Iframe Button is presented");
         webDriver.switchTo().frame(iframe);
     }
 
+    @Step("Getting Iframe Button text")
     public String getFrameButtonText() {
+        logger.info("Switched to the Iframe Button");
         return frameButton.getAttribute(TextsForComparison.FRAME_BUTTON_VALUE);
     }
 
+    @Step("Switching back to original window")
     public void toParentPage() {
+        logger.info("Iframe Button text checked");
         webDriver.switchTo().parentFrame();
     }
 
-    public WebElement getHeaderSection() {
-        return headerSection;
-    }
-
-    public String getHeaderSectionText() {
-        return headerSection.getText();
-    }
-
+    @Step("Getting Left Section text")
     public List<String> getLeftSectionText() {
+        logger.info("Switched back to original window");
         return leftSection.stream().map(WebElement::getText)
                 .collect(Collectors.toList());
+    }
+
+    public void leftSectionConfirmation() {
+        logger.info("Left Section text checked");
     }
 
     public ServiceDifferentElementsPage toDifferentElementsPage() {

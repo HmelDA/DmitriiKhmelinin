@@ -21,6 +21,8 @@
         <selenium-java.version>3.141.59</selenium-java.version>
         <allure-testng.version>2.16.0</allure-testng.version>
         <aspectj.version>1.9.7</aspectj.version>
+        <log4j-api.version>2.14.1</log4j-api.version>
+        <log4j-core.version>2.14.1</log4j-core.version>
 
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
     </properties>
@@ -50,13 +52,19 @@
         </profile>
 
         <profile>
-            <id>homework04-ex1-ex2-test-suite</id>
+            <id>homework04-ex1-test-suite</id>
             <properties>
-                <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw4/ExerciseOneTwoTestSuite.xml</test.suite.name>
+                <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw4/ExerciseOneTestSuite.xml</test.suite.name>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+        </profile>
+        <profile>
+            <id>homework04-ex2-test-suite</id>
+            <properties>
+                <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw4/ExerciseTwoTestSuite.xml</test.suite.name>
+            </properties>
         </profile>
     </profiles>
 
@@ -102,6 +110,18 @@
             <artifactId>allure-testng</artifactId>
             <version>${allure-testng.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j-api.version}</version>
+
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-core.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -144,6 +164,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>

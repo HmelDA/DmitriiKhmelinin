@@ -7,15 +7,20 @@ import com.epam.tc.hw4.page.MainPage;
 import com.epam.tc.hw4.page.ServiceDifferentElementsPage;
 import com.epam.tc.hw4.service.LoginDataProvider;
 import com.epam.tc.hw4.service.UserCreator;
+import com.epam.tc.hw4.util.TestListener;
 import com.epam.tc.hw4.util.TextsForComparison;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-
-public class BaseTest2 {
+@Feature("Base Test for Main Page and Different Elements Page")
+@Listeners({TestListener.class})
+public class BaseTest {
 
     public WebDriver webDriver;
     public SoftAssert softAssert;
@@ -24,18 +29,20 @@ public class BaseTest2 {
     public ServiceDifferentElementsPage differentElementsPage;
     public User testUser;
 
+    @Story("Set Up class")
     @BeforeClass
     public void setupClass() {
         webDriver = DriverSingleton.getWebDriver();
         softAssert = new SoftAssert();
         loginPage = new LoginPage(webDriver);
         testUser = UserCreator.withCredentialsFromProperty();
-        //1. Open test site by URL
-        loginPage.openPage();
     }
 
+    @Story("Perform login")
     @Test
     public void sameStepsTest() {
+        //1. Open test site by URL
+        loginPage.openPage();
         softAssert.assertEquals(loginPage.getUrl(),
                 LoginDataProvider.getLoginData("testSite.url"));
         //2. Assert Browser title
@@ -49,6 +56,7 @@ public class BaseTest2 {
         softAssert.assertAll();
     }
 
+    @Story("Clear objects")
     @AfterClass
     public void clear() {
         softAssert = null;

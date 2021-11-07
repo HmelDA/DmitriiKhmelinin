@@ -1,11 +1,15 @@
 package com.epam.tc.hw4.test.ex1;
 
-import com.epam.tc.hw4.test.BaseTest2;
+import com.epam.tc.hw4.test.BaseTest;
 import com.epam.tc.hw4.util.TextsForComparison;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 
-public class MainPageTest extends BaseTest2 {
+@Feature("Test for Main Page")
+public class MainPageTest extends BaseTest {
 
+    @Story("Test for sections and images")
     @Test
     public void sectionsImagesIframeTest() {
 
@@ -36,6 +40,7 @@ public class MainPageTest extends BaseTest2 {
         //11. Assert that there are 5 items in the Left Section are displayed and they have proper text
         softAssert.assertEquals(mainPage.getLeftSectionText(),
                 TextsForComparison.LEFT_SECTION);
+        mainPage.leftSectionConfirmation();
 
         //12. Close Browser
         softAssert.assertAll();

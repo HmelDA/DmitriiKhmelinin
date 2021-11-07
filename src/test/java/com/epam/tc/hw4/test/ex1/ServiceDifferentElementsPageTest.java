@@ -1,15 +1,18 @@
-package com.epam.tc.hw4.test.ex2;
+package com.epam.tc.hw4.test.ex1;
 
 import com.epam.tc.hw4.page.ServiceDifferentElementsPage;
-import com.epam.tc.hw4.test.BaseTest2;
+import com.epam.tc.hw4.test.BaseTest;
 import com.epam.tc.hw4.util.TextsForComparison;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 
-
-public class ServiceDifferentElementsPageTest extends BaseTest2 {
+@Feature("Test for Service")
+public class ServiceDifferentElementsPageTest extends BaseTest {
 
     ServiceDifferentElementsPage differentElementsPage;
 
+    @Story("Test for checkboxes and logs")
     @Test
     public void checkboxesRadioDropdownLogsTest() {
 
@@ -34,6 +37,7 @@ public class ServiceDifferentElementsPageTest extends BaseTest2 {
         //9. Verify that the logs are displayed and match the expected values
         softAssert.assertEquals(differentElementsPage.getLogsPanelText(),
                 TextsForComparison.LOG_CHANGES);
+        differentElementsPage.logsConfirmation();
 
         //10. Close Browser
         softAssert.assertAll();
