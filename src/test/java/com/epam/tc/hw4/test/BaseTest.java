@@ -19,7 +19,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 @Feature("Base Test for Main Page and Different Elements Page")
-@Listeners({TestListener.class})
+@Listeners(TestListener.class)
 public class BaseTest {
 
     public WebDriver webDriver;
