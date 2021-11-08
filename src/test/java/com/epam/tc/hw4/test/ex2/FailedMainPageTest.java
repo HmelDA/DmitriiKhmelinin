@@ -6,8 +6,8 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 
-@Feature("Test for Service")
-@Story("Test for checkboxes and logs")
+@Feature("Test for Main Page")
+@Story("Test for sections and images failed on purpose")
 public class FailedMainPageTest extends BaseTest {
 
     @Test
