@@ -2,8 +2,12 @@ package com.epam.tc.hw4.test.ex2;
 
 import com.epam.tc.hw4.test.BaseTest;
 import com.epam.tc.hw4.util.TextsForComparison;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 
+@Feature("Test for Service")
+@Story("Test for checkboxes and logs")
 public class FailedMainPageTest extends BaseTest {
 
     @Test

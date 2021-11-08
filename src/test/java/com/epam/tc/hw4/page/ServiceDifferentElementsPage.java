@@ -40,12 +40,12 @@ public class ServiceDifferentElementsPage extends AbstractPage {
         PageFactory.initElements(this.webDriver, this);
     }
 
-    @Step("Clicking to Service button")
+    @Step("Click to Service button")
     public void toService() {
         service.click();
     }
 
-    @Step("Clicking to Different Elements button")
+    @Step("Click to Different Elements button")
     public void toDifferentElements() {
         logger.info("Service button clicked");
         differentElements.click();
@@ -54,13 +54,13 @@ public class ServiceDifferentElementsPage extends AbstractPage {
                         .executeScript("return document.readyState").equals("complete"));
     }
 
-    @Step("Checking Different Elements url")
+    @Step("Check Different Elements url")
     public String getDifferentElementsURL() {
         logger.info("Different Elements button clicked");
         return webDriver.getCurrentUrl();
     }
 
-    @Step("Selecting Water Checkbox")
+    @Step("Select Water Checkbox")
     public void selectWaterCheckbox() {
         logger.info("Different Elements url clicked");
         waterCheckbox.click();
@@ -69,7 +69,7 @@ public class ServiceDifferentElementsPage extends AbstractPage {
                         .elementSelectionStateToBe(waterCheckbox, true)));
     }
 
-    @Step("Selecting Wind Checkbox")
+    @Step("Select Wind Checkbox")
     public void selectWindCheckbox() {
         logger.info("Water Checkbox Selected");
         windCheckbox.click();
@@ -78,7 +78,7 @@ public class ServiceDifferentElementsPage extends AbstractPage {
                         .elementSelectionStateToBe(windCheckbox, true)));
     }
 
-    @Step("Selecting Selen Radio")
+    @Step("Select Selen Radio")
     public void selectSelenRadio() {
         logger.info("Wind Checkbox Selected");
         selenRadio.click();
@@ -87,13 +87,13 @@ public class ServiceDifferentElementsPage extends AbstractPage {
                         .elementSelectionStateToBe(selenRadio, true)));
     }
 
-    @Step("Clicking to Dropdown Colors")
+    @Step("Click to Dropdown Colors")
     public void clickDropdownColors() {
         logger.info("Selen Radio Selected");
         dropdownColors.click();
     }
 
-    @Step("Selecting Yellow")
+    @Step("Select Yellow")
     public void selectYellow() {
         logger.info("Dropdown Colors opened");
         yellow.click();
@@ -102,7 +102,7 @@ public class ServiceDifferentElementsPage extends AbstractPage {
                         .elementSelectionStateToBe(yellow, true)));
     }
 
-    @Step("Getting Logs Panel text")
+    @Step("Get Logs Panel text")
     public List<String> getLogsPanelText() {
         logger.info("Yellow Selected");
         return logsPanel.stream().map(logMessage -> logMessage.getText()

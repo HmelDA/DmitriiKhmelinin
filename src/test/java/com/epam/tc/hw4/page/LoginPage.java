@@ -27,7 +27,7 @@ public class LoginPage extends AbstractPage {
         PageFactory.initElements(this.webDriver, this);
     }
 
-    @Step("Opening the page")
+    @Step("Open the page")
     public LoginPage openPage() {
         webDriver.navigate().to(URL);
         new WebDriverWait(webDriver, WAIT * 2).until(
@@ -36,19 +36,19 @@ public class LoginPage extends AbstractPage {
         return this;
     }
 
-    @Step("Getting the url of page")
+    @Step("Get the url of page")
     public String getUrl() {
         logger.info("Login page opened");
         return webDriver.getCurrentUrl();
     }
 
-    @Step("Getting the title of page")
+    @Step("Get the title of page")
     public String getTitle() {
         logger.info("Got url");
         return webDriver.getTitle();
     }
 
-    @Step("Performing login")
+    @Step("Perform login")
     public MainPage login(User user) {
         logger.info("Title checked");
         userIcon.click();

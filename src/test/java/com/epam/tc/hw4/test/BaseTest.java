@@ -19,6 +19,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 @Feature("Base Test for Main Page and Different Elements Page")
+@Story("Set Up class, perform login, clear objects")
 @Listeners(TestListener.class)
 public class BaseTest {
 
@@ -29,7 +30,7 @@ public class BaseTest {
     public ServiceDifferentElementsPage differentElementsPage;
     public User testUser;
 
-    @Story("Set Up class")
+
     @BeforeClass
     public void setupClass() {
         webDriver = DriverSingleton.getWebDriver();
@@ -38,7 +39,6 @@ public class BaseTest {
         testUser = UserCreator.withCredentialsFromProperty();
     }
 
-    @Story("Perform login")
     @Test
     public void sameStepsTest() {
         //1. Open test site by URL
@@ -56,7 +56,6 @@ public class BaseTest {
         softAssert.assertAll();
     }
 
-    @Story("Clear objects")
     @AfterClass
     public void clear() {
         softAssert = null;

@@ -17,6 +17,7 @@ import org.testng.ITestResult;
 
 
 public class TestListener implements ITestListener {
+
     private Logger log = LogManager.getRootLogger();
 
     public void onTestFailure(ITestResult itestresult) {

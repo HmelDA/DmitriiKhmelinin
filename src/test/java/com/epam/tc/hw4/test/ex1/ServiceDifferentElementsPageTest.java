@@ -8,11 +8,11 @@ import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 
 @Feature("Test for Service")
+@Story("Test for checkboxes and logs")
 public class ServiceDifferentElementsPageTest extends BaseTest {
 
     ServiceDifferentElementsPage differentElementsPage;
 
-    @Story("Test for checkboxes and logs")
     @Test
     public void checkboxesRadioDropdownLogsTest() {
 

@@ -7,9 +7,9 @@ import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 
 @Feature("Test for Main Page")
+@Story("Test for sections and images")
 public class MainPageTest extends BaseTest {
 
-    @Story("Test for sections and images")
     @Test
     public void sectionsImagesIframeTest() {
 

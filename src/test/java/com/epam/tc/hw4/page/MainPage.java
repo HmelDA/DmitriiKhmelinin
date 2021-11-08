@@ -40,74 +40,74 @@ public class MainPage extends AbstractPage {
         return null;
     }
 
-    @Step("Getting locator of the user name")
+    @Step("Get locator of the user name")
     public WebElement getLocatorUserName() {
         logger.info("Login performed");
         return userName;
     }
 
-    @Step("Getting user name")
+    @Step("Get user name")
     public String getUserName() {
         logger.info("Username is displayed");
         return userName.getText();
     }
 
-    @Step("Checking presence of Header Section")
+    @Step("Check presence of Header Section")
     public WebElement getHeaderSection() {
         logger.info("Username is checked");
         return headerSection;
     }
 
-    @Step("Checking Header Section text")
+    @Step("Check Header Section text")
     public String getHeaderSectionText() {
         logger.info("Header Section is displayed");
         return headerSection.getText();
     }
 
-    @Step("Checking Benefit Icons quantity")
+    @Step("Check Benefit Icons quantity")
     public int getBenefitIconsQuantity() {
         logger.info("Header Section is checked");
         return benefitIcons.size();
     }
 
-    @Step("Checking Benefit Icons presence")
+    @Step("Check Benefit Icons presence")
     public Boolean checkThatBenefitIconsPresented() {
         logger.info("Benefit Icons quantity is checked");
         return benefitIcons.stream().allMatch(WebElement::isDisplayed);
     }
 
-    @Step("Checking Benefit Icons text")
+    @Step("Check Benefit Icons text")
     public List<String> getBenefitIconsText() {
         logger.info("Benefit Icons are presented");
         return benefitText.stream().map(WebElement::getText)
                 .collect(Collectors.toList());
     }
 
-    @Step("Checking Iframe Button presence")
+    @Step("Check Iframe Button presence")
     public WebElement getIframe() {
         logger.info("Benefit Icons text checked");
         return iframe;
     }
 
-    @Step("Switching to Iframe Button")
+    @Step("Switch to Iframe Button")
     public void switchToFrameButton() {
         logger.info("Iframe Button is presented");
         webDriver.switchTo().frame(iframe);
     }
 
-    @Step("Getting Iframe Button text")
+    @Step("Get Iframe Button text")
     public String getFrameButtonText() {
         logger.info("Switched to the Iframe Button");
         return frameButton.getAttribute(TextsForComparison.FRAME_BUTTON_VALUE);
     }
 
-    @Step("Switching back to original window")
+    @Step("Switch back to original window")
     public void toParentPage() {
         logger.info("Iframe Button text checked");
         webDriver.switchTo().parentFrame();
     }
 
-    @Step("Getting Left Section text")
+    @Step("Get Left Section text")
     public List<String> getLeftSectionText() {
         logger.info("Switched back to original window");
         return leftSection.stream().map(WebElement::getText)
