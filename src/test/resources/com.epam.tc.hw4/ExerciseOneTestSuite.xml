@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Exercise 1 Test Suite">
+    <listeners>
+        <listener class-name="com.epam.tc.hw4.util.TestListener"/>
+    </listeners>
+    <test name="Exercise 1 Test">
+        <packages>
+            <package name="com.epam.tc.hw4.test.ex1"/>
+        </packages>
+    </test>
+</suite>

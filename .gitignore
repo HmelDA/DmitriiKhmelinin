@@ -3,5 +3,7 @@ log/
 *.iml
 *.iws
 .idea/
+/.allure
+/allure-results
 vcs.xml
 out/
