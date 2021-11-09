@@ -40,10 +40,10 @@ public class MainPage extends AbstractPage {
         return null;
     }
 
-    @Step("Get locator of the user name")
-    public WebElement getLocatorUserName() {
+    @Step("Check user name is displayed")
+    public boolean checkUserNameDisplayed() {
         logger.info("Login performed");
-        return userName;
+        return userName.isDisplayed();
     }
 
     @Step("Get user name")
@@ -53,9 +53,9 @@ public class MainPage extends AbstractPage {
     }
 
     @Step("Check presence of Header Section")
-    public WebElement getHeaderSection() {
+    public boolean checkHeaderSectionDisplayed() {
         logger.info("Username is checked");
-        return headerSection;
+        return headerSection.isDisplayed();
     }
 
     @Step("Check Header Section text")
@@ -84,9 +84,9 @@ public class MainPage extends AbstractPage {
     }
 
     @Step("Check Iframe Button presence")
-    public WebElement getIframe() {
+    public boolean checkIframeButtonIsDisplayed() {
         logger.info("Benefit Icons text checked");
-        return iframe;
+        return iframe.isDisplayed();
     }
 
     @Step("Switch to Iframe Button")
@@ -102,7 +102,7 @@ public class MainPage extends AbstractPage {
     }
 
     @Step("Switch back to original window")
-    public void toParentPage() {
+    public void switchBackToOriginalWindow() {
         logger.info("Iframe Button text checked");
         webDriver.switchTo().parentFrame();
     }
@@ -118,7 +118,7 @@ public class MainPage extends AbstractPage {
         logger.info("Left Section text checked");
     }
 
-    public ServiceDifferentElementsPage toDifferentElementsPage() {
+    public ServiceDifferentElementsPage getServiceDifferentElementsPageInstance() {
         return new ServiceDifferentElementsPage(webDriver);
     }
 }

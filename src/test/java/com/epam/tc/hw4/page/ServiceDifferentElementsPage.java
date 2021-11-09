@@ -41,12 +41,12 @@ public class ServiceDifferentElementsPage extends AbstractPage {
     }
 
     @Step("Click to Service button")
-    public void toService() {
+    public void clickToServiceButton() {
         service.click();
     }
 
     @Step("Click to Different Elements button")
-    public void toDifferentElements() {
+    public void clickToDifferentElementsButton() {
         logger.info("Service button clicked");
         differentElements.click();
         new WebDriverWait(webDriver, WAIT * 2).until(

@@ -16,10 +16,10 @@ public class ServiceDifferentElementsPageTest extends BaseTest {
     @Test
     public void checkboxesRadioDropdownLogsTest() {
 
-        differentElementsPage = mainPage.toDifferentElementsPage();
+        differentElementsPage = mainPage.getServiceDifferentElementsPageInstance();
         //5. Open through the header menu Service -> Different Elements Page
-        differentElementsPage.toService();
-        differentElementsPage.toDifferentElements();
+        differentElementsPage.clickToServiceButton();
+        differentElementsPage.clickToDifferentElementsButton();
         softAssert.assertEquals(differentElementsPage.getDifferentElementsURL(),
                 TextsForComparison.DIFFERENT_ELEMENTS_URL);
 
