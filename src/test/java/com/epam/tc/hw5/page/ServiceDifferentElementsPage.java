@@ -1,5 +1,8 @@
-package com.epam.tc.hw3.page;
+package com.epam.tc.hw5.page;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import io.qameta.allure.Step;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.openqa.selenium.JavascriptExecutor;
@@ -9,7 +12,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 
 public class ServiceDifferentElementsPage extends AbstractPage {
 
@@ -38,21 +40,25 @@ public class ServiceDifferentElementsPage extends AbstractPage {
         PageFactory.initElements(this.webDriver, this);
     }
 
-    public void clickToServiceMenu() {
+    @Step("Click to Service button")
+    public void clickToServiceButton() {
         service.click();
     }
 
-    public void openDifferentElementsPage() {
+    @Step("Click to Different Elements button")
+    public void clickToDifferentElementsButton() {
         differentElements.click();
         new WebDriverWait(webDriver, WAIT * 2).until(
                 webDriver -> ((JavascriptExecutor) webDriver)
                         .executeScript("return document.readyState").equals("complete"));
     }
 
+    @Step("Check Different Elements url")
     public String getDifferentElementsURL() {
         return webDriver.getCurrentUrl();
     }
 
+    @Step("Select Water Checkbox")
     public void selectWaterCheckbox() {
         waterCheckbox.click();
         new WebDriverWait(webDriver, WAIT).until(
@@ -60,6 +66,12 @@ public class ServiceDifferentElementsPage extends AbstractPage {
                         .elementSelectionStateToBe(waterCheckbox, true)));
     }
 
+    public void isWaterCheckboxSelected() {
+        assertThat(waterCheckbox.isSelected())
+                .withFailMessage("Checkbox is not selected");
+    }
+
+    @Step("Select Wind Checkbox")
     public void selectWindCheckbox() {
         windCheckbox.click();
         new WebDriverWait(webDriver, WAIT).until(
@@ -67,6 +79,12 @@ public class ServiceDifferentElementsPage extends AbstractPage {
                         .elementSelectionStateToBe(windCheckbox, true)));
     }
 
+    public void isWindCheckboxSelected() {
+        assertThat(windCheckbox.isSelected())
+                .withFailMessage("Checkbox is not selected");
+    }
+
+    @Step("Select Selen Radio")
     public void selectSelenRadio() {
         selenRadio.click();
         new WebDriverWait(webDriver, WAIT).until(
@@ -74,10 +92,17 @@ public class ServiceDifferentElementsPage extends AbstractPage {
                         .elementSelectionStateToBe(selenRadio, true)));
     }
 
+    public void isSelenRadioSelected() {
+        assertThat(selenRadio.isSelected())
+                .withFailMessage("Radio is not selected");
+    }
+
+    @Step("Click to Dropdown Colors")
     public void clickDropdownColors() {
         dropdownColors.click();
     }
 
+    @Step("Select Yellow")
     public void selectYellow() {
         yellow.click();
         new WebDriverWait(webDriver, WAIT).until(
@@ -85,6 +110,12 @@ public class ServiceDifferentElementsPage extends AbstractPage {
                         .elementSelectionStateToBe(yellow, true)));
     }
 
+    public void isYellowSelected() {
+        assertThat(yellow.isSelected())
+                .withFailMessage("Color is not selected");
+    }
+
+    @Step("Get Logs Panel text")
     public List<String> getLogsPanelText() {
         return logsPanel.stream().map(logMessage -> logMessage.getText()
                         .substring(logMessage.getText().indexOf(" ") + 1))

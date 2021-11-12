@@ -1,22 +1,22 @@
 package com.epam.tc.hw3.test.ex2;
 
-import com.epam.tc.hw3.page.ServiceDifferentElementsPage;
-import com.epam.tc.hw3.test.BaseTest2;
-import com.epam.tc.hw3.util.TextsForComparison;
+import com.epam.tc.hw4.page.ServiceDifferentElementsPage;
+import com.epam.tc.hw4.test.BaseTest;
+import com.epam.tc.hw4.util.TextsForComparison;
 import org.testng.annotations.Test;
 
 
-public class ServiceDifferentElementsPageTest extends BaseTest2 {
+public class ServiceDifferentElementsPageTest extends BaseTest {
 
     ServiceDifferentElementsPage differentElementsPage;
 
     @Test
     public void checkboxesRadioDropdownLogsTest() {
 
-        differentElementsPage = mainPage.toDifferentElementsPage();
+        differentElementsPage = mainPage.getServiceDifferentElementsPageInstance();
         //5. Open through the header menu Service -> Different Elements Page
-        differentElementsPage.toService();
-        differentElementsPage.toDifferentElements();
+        differentElementsPage.clickToServiceButton();
+        differentElementsPage.clickToDifferentElementsButton();
         softAssert.assertEquals(differentElementsPage.getDifferentElementsURL(),
                 TextsForComparison.DIFFERENT_ELEMENTS_URL);
 

@@ -31,7 +31,7 @@ public class MainPageTest extends BaseTest2 {
                 TextsForComparison.FRAME_BUTTON_TEXT);
 
         //10. Switch to original window back
-        mainPage.toParentPage();
+        mainPage.switchToParentPage();
 
         //11. Assert that there are 5 items in the Left Section are displayed and they have proper text
         softAssert.assertEquals(mainPage.getLeftSectionText(),
