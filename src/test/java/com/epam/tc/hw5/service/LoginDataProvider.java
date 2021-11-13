@@ -9,7 +9,7 @@ public class LoginDataProvider {
 
     public static String getLoginData(String needed) {
         String data = null;
-        try (InputStream loginData = new FileInputStream("src/test/resources/com.epam.tc.hw3/login.properties")) {
+        try (InputStream loginData = new FileInputStream("src/test/resources/com.epam.tc.hw5/login.properties")) {
             Properties forLogin = new Properties();
             if (loginData == null) {
                 System.out.println("Sorry, unable to find login.properties");
