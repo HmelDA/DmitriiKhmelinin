@@ -109,9 +109,8 @@ public class UserTablePage extends AbstractPage {
 
     @Step("Get Log Row text")
     public String getLogRowText() {
-        return logs.get(0)
-                .getText()
-                .substring(9);
+        String logRowText = logs.get(0).getText();
+        return logRowText.substring(logRowText.indexOf(" ") + 1);
     }
 
     @Override
