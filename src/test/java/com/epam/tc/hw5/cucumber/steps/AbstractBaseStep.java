@@ -5,6 +5,7 @@ import com.epam.tc.hw5.model.User;
 import com.epam.tc.hw5.page.LoginPage;
 import com.epam.tc.hw5.page.MainPage;
 import com.epam.tc.hw5.page.ServiceDifferentElementsPage;
+import com.epam.tc.hw5.page.UserTablePage;
 import com.epam.tc.hw5.service.LoginDataProvider;
 import com.epam.tc.hw5.service.UserCreator;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +17,7 @@ public abstract class AbstractBaseStep {
     public LoginPage loginPage;
     public MainPage mainPage;
     public ServiceDifferentElementsPage differentElementsPage;
+    UserTablePage userTablePage;
     public User testUser;
 
     public AbstractBaseStep() {
@@ -24,5 +26,6 @@ public abstract class AbstractBaseStep {
         loginPage = new LoginPage(webDriver);
         mainPage = new MainPage(webDriver);
         differentElementsPage = new ServiceDifferentElementsPage(webDriver);
+        userTablePage = new UserTablePage(webDriver);
     }
 }

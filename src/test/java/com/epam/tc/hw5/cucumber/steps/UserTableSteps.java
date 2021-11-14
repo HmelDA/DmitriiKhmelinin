@@ -16,13 +16,13 @@ public class UserTableSteps extends AbstractBaseStep {
 
     @When("\"User Table\" page should be opened")
     public void isUserTablePageOpened() {
-        userTablePage.isPageOpened();
+        assertThat(webDriver.getCurrentUrl()).isEqualTo(userTablePage.getPageURL());
     }
 
     @When("{int} Number Type Dropdowns should be displayed on Users Table on User Table Page")
-    public void checkNumberTypeDropdowns(int numberTypeDropdownsQuantity) {
-        assertThat(userTablePage.getNumberTypeDropdownsQuantity())
-                .isEqualTo(numberTypeDropdownsQuantity);
+    public void checkTypeDropdowns(int typeDropdownsQuantity) {
+        assertThat(userTablePage.getTypeDropdownsQuantity())
+                .isEqualTo(typeDropdownsQuantity);
     }
 
     @When("{int} Usernames should be displayed on Users Table on User Table Page")
@@ -46,23 +46,24 @@ public class UserTableSteps extends AbstractBaseStep {
     @When("User table should contain following values:")
     public void checkUserTableValues(DataTable userTable) {
         List<List<String>> userTableValuesFromFeature = userTable.asLists(String.class);
-        userTableValuesFromFeature.remove(0);
-        assertThat(userTablePage.getUserTableValuesList()).isEqualTo(userTableValuesFromFeature);
+        assertThat(userTablePage.getUserTableValuesList())
+                .isEqualTo(userTableValuesFromFeature
+                        .subList(1, userTableValuesFromFeature.size()));
 
     }
 
     @When("Droplist should contain values in column Type for user Roman")
     public void checkDroplistValuesInColumnTypeForUserRoman(DataTable droplistValuesTable) {
         List<List<String>> droplistFromFeature = droplistValuesTable.asLists(String.class);
-        droplistFromFeature.remove(0);
         List<String> droplistFromFeatureToCompare = new ArrayList<>();
-        droplistFromFeature.forEach(droplistFromFeatureToCompare::addAll);
-        assertThat(userTablePage.getDroplistValuesList()).isEqualTo(droplistFromFeatureToCompare);
+        droplistFromFeature.subList(1, droplistFromFeature.size())
+                .forEach(droplistFromFeatureToCompare::addAll);
+        assertThat(userTablePage.getRomanDroplistValues()).isEqualTo(droplistFromFeatureToCompare);
     }
 
     @When("I select 'vip' checkbox for \"Sergey Ivan\"")
-    public void selectVipCheckbox() {
-        userTablePage.selectVipCheckbox();
+    public void selectVipSergeyIvanCheckbox() {
+        userTablePage.selectVipSergeyIvanCheckbox();
     }
 
     @When("1 log row has {string} text in log section")
