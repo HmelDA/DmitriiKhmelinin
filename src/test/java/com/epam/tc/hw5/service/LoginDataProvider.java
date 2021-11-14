@@ -11,10 +11,6 @@ public class LoginDataProvider {
         String data = null;
         try (InputStream loginData = new FileInputStream("src/test/resources/com.epam.tc.hw5/login.properties")) {
             Properties forLogin = new Properties();
-            if (loginData == null) {
-                System.out.println("Sorry, unable to find login.properties");
-                return null;
-            }
             forLogin.load(loginData);
             data = forLogin.getProperty(needed);
         } catch (IOException ex) {

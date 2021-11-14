@@ -3,6 +3,7 @@ package com.epam.tc.hw5.cucumber.steps;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.epam.tc.hw5.util.TextsForComparison;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -29,37 +30,84 @@ public class ServiceDifferentElementsPageSteps extends AbstractBaseStep {
                 .isEqualTo(TextsForComparison.DIFFERENT_ELEMENTS_URL);
     }
 
-    @When("I click on \"Water\" and \"Wind\" checkboxes")
-    public void clickOnCheckboxes() {
-        differentElementsPage.selectWaterCheckbox();
-        differentElementsPage.selectWindCheckbox();
+    @When("I click on {string} checkbox")
+    public void clickOnCheckboxes(String checkboxType) {
+        switch (checkboxType) {
+            case "Water":
+                differentElementsPage.selectWaterCheckbox();
+                break;
+            case "Wind":
+                differentElementsPage.selectWindCheckbox();
+                break;
+            default: throw new UnsupportedOperationException();
+        }
     }
 
-    @When("Elements are checked")
-    public void checboxesAreChecked() {
-        differentElementsPage.isWaterCheckboxSelected();
-        differentElementsPage.isWindCheckboxSelected();
+    @Then("{string} checbox is checked")
+    public void checboxIsChecked(String checkboxType) {
+        switch (checkboxType) {
+            case "Water":
+                differentElementsPage.isWaterCheckboxSelected();
+                break;
+            case "Wind":
+                differentElementsPage.isWindCheckboxSelected();
+                break;
+            default: throw new UnsupportedOperationException();
+        }
     }
 
-    @When("I click on \"Selen\" radio")
-    public void clickOnRadio() {
-        differentElementsPage.selectSelenRadio();
+
+    @When("I click on {string} radio")
+    public void clickOnRadio(String ratioType) {
+        switch (ratioType) {
+            case "Selen":
+                differentElementsPage.selectSelenRadio();
+                break;
+            case "notSelen":
+                System.out.println("notSelen");
+                break;
+            default: throw new UnsupportedOperationException();
+        }
     }
 
-    @When("Radio is checked")
-    public void radioIsChecked() {
-        differentElementsPage.isSelenRadioSelected();
+    @When("{string} radio is checked")
+    public void radioIsChecked(String ratioType) {
+        switch (ratioType) {
+            case "Selen":
+                differentElementsPage.isSelenRadioSelected();
+                break;
+            case "notSelen":
+                System.out.println("notSelen");
+                break;
+            default: throw new UnsupportedOperationException();
+        }
     }
 
-    @When("I select \"Yellow\" color in dropdown")
-    public void selectColorInDropdown() {
+    @When("I select {string} color in dropdown")
+    public void selectColorInDropdown(String color) {
         differentElementsPage.clickDropdownColors();
-        differentElementsPage.selectYellow();
+        switch (color) {
+            case "Yellow":
+                differentElementsPage.selectYellow();
+                break;
+            case "Red":
+                System.out.println("Red");
+                break;
+            default: throw new UnsupportedOperationException();
+        }
     }
 
-    @When("Element is checked")
-    public void yellowIsChecked() {
-        differentElementsPage.isSelenRadioSelected();
+    @When("{string} color is checked")
+    public void yellowIsChecked(String color) {
+        switch (color) {
+            case "Yellow":
+                differentElementsPage.isYellowSelected();
+                break;
+            case "Red":
+                System.out.println("Red");
+                break;
+            default: throw new UnsupportedOperationException();
+        }
     }
 
     @When("Log rows are displayed in the Log Panel and its status"

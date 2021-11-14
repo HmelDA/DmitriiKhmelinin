@@ -8,12 +8,14 @@ Feature: Service Different elements
     When I click on "Service" button in Header
     And I click on "Different elements" button in Service Dropdown
     Then "Different elements" page should be opened
-    When I click on "Water" and "Wind" checkboxes
-    Then Elements are checked
-    And I click on "Selen" radio
-    Then Radio is checked
-    And I select "Yellow" color in dropdown
-    Then Element is checked
+    When I click on "Water" checkbox
+    And I click on "Wind" checkbox
+    Then "Water" checbox is checked
+    And "Wind" checbox is checked
+    When I click on "Selen" radio
+    Then "Selen" radio is checked
+    When I select "Yellow" color in dropdown
+    Then "Yellow" color is checked
     Then Log rows are displayed in the Log Panel and its status corresponding to selected checkboxes, radio and color
 
 
