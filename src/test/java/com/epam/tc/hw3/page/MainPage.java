@@ -71,7 +71,7 @@ public class MainPage extends AbstractPage {
         return frameButton.getAttribute(TextsForComparison.FRAME_BUTTON_VALUE);
     }
 
-    public void toParentPage() {
+    public void switchToParentPage() {
         webDriver.switchTo().parentFrame();
     }
 

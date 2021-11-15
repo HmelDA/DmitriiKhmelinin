@@ -23,6 +23,8 @@
         <aspectj.version>1.9.7</aspectj.version>
         <log4j-api.version>2.14.1</log4j-api.version>
         <log4j-core.version>2.14.1</log4j-core.version>
+        <cucumber-java.version>7.0.0</cucumber-java.version>
+        <cucumber-testng.version>7.0.0</cucumber-testng.version>
 
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
     </properties>
@@ -56,15 +58,21 @@
             <properties>
                 <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw4/ExerciseOneTestSuite.xml</test.suite.name>
             </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
         </profile>
         <profile>
             <id>homework04-ex2-test-suite</id>
             <properties>
                 <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw4/ExerciseTwoTestSuite.xml</test.suite.name>
             </properties>
+        </profile>
+        <profile>
+            <id>homework05-cucumber-test-suite</id>
+            <properties>
+                <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw5/cucumber/CucumberTestSuite.xml</test.suite.name>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
         </profile>
     </profiles>
 
@@ -117,10 +125,23 @@
             <version>${log4j-api.version}</version>
 
         </dependency>
+
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>${log4j-core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber-java.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber-testng.version}</version>
         </dependency>
     </dependencies>
 
