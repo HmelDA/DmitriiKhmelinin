@@ -39,7 +39,10 @@ public class ServiceDifferentElementsPageSteps extends AbstractBaseStep {
             case "Wind":
                 differentElementsPage.selectWindCheckbox();
                 break;
-            default: throw new UnsupportedOperationException();
+            case "Earth":
+            case "Fire":
+                throw new UnsupportedOperationException();
+            default: throw new RuntimeException("Incorrect value");
         }
     }
 
@@ -52,7 +55,10 @@ public class ServiceDifferentElementsPageSteps extends AbstractBaseStep {
             case "Wind":
                 differentElementsPage.isWindCheckboxSelected();
                 break;
-            default: throw new UnsupportedOperationException();
+            case "Earth":
+            case "Fire":
+                throw new UnsupportedOperationException();
+            default: throw new RuntimeException("Incorrect value");
         }
     }
 
@@ -63,10 +69,11 @@ public class ServiceDifferentElementsPageSteps extends AbstractBaseStep {
             case "Selen":
                 differentElementsPage.selectSelenRadio();
                 break;
-            case "notSelen":
-                System.out.println("notSelen");
-                break;
-            default: throw new UnsupportedOperationException();
+            case "Gold":
+            case "Silver":
+            case "Bronze":
+                throw new UnsupportedOperationException();
+            default: throw new RuntimeException("Incorrect value");
         }
     }
 
@@ -76,10 +83,11 @@ public class ServiceDifferentElementsPageSteps extends AbstractBaseStep {
             case "Selen":
                 differentElementsPage.isSelenRadioSelected();
                 break;
-            case "notSelen":
-                System.out.println("notSelen");
-                break;
-            default: throw new UnsupportedOperationException();
+            case "Gold":
+            case "Silver":
+            case "Bronze":
+                throw new UnsupportedOperationException();
+            default: throw new RuntimeException("Incorrect value");
         }
     }
 
@@ -91,9 +99,10 @@ public class ServiceDifferentElementsPageSteps extends AbstractBaseStep {
                 differentElementsPage.selectYellow();
                 break;
             case "Red":
-                System.out.println("Red");
-                break;
-            default: throw new UnsupportedOperationException();
+            case "Green":
+            case "Blue":
+                throw new UnsupportedOperationException();
+            default: throw new RuntimeException("Incorrect value");
         }
     }
 
@@ -104,9 +113,10 @@ public class ServiceDifferentElementsPageSteps extends AbstractBaseStep {
                 differentElementsPage.isYellowSelected();
                 break;
             case "Red":
-                System.out.println("Red");
-                break;
-            default: throw new UnsupportedOperationException();
+            case "Green":
+            case "Blue":
+                throw new UnsupportedOperationException();
+            default: throw new RuntimeException("Incorrect value");
         }
     }
 
