@@ -38,21 +38,18 @@
                 <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw1/AllCalcTestSuite.xml</test.suite.name>
             </properties>
         </profile>
-
         <profile>
             <id>homework01-sum-sub-test-suite</id>
             <properties>
                 <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw1/SumSubCalcTestSuite.xml</test.suite.name>
             </properties>
         </profile>
-
         <profile>
             <id>homework01-mult-div-test-suite</id>
             <properties>
                 <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw1/MultDivCalcTestSuite.xml</test.suite.name>
             </properties>
         </profile>
-
         <profile>
             <id>homework04-ex1-test-suite</id>
             <properties>
@@ -69,6 +66,12 @@
             <id>homework05-cucumber-test-suite</id>
             <properties>
                 <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw5/cucumber/CucumberTestSuite.xml</test.suite.name>
+            </properties>
+        </profile>
+        <profile>
+            <id>homework06-ex1-test-suite</id>
+            <properties>
+                <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw6/ExerciseOneTestSuite.xml</test.suite.name>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>

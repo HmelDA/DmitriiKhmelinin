@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="GRID Test Suite">
+    <listeners>
+        <listener class-name="com.epam.tc.hw6.util.TestListener"/>
+    </listeners>
+    <test name="GRID Test">
+        <packages>
+            <package name="com.epam.tc.hw6.test.ex1"/>
+        </packages>
+    </test>
+</suite>
