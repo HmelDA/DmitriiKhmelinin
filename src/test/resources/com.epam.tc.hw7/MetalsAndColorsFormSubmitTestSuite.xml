@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Metals And Colors Form Submit Test Suite">
+<!--    <listeners>
+        <listener class-name="com.epam.tc.hw7.util.TestListener"/>
+    </listeners>-->
+    <test name="Metals And Colors Form Submit Test">
+        <packages>
+            <package name="com.epam.tc.hw7.test.ex1"/>
+        </packages>
+    </test>
+</suite>
