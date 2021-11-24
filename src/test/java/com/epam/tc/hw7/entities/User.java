@@ -1,6 +1,5 @@
 package com.epam.tc.hw7.entities;
 
-import com.epam.tc.hw7.service.UserCreator;
 import com.jdiai.tools.DataClass;
 import java.util.Objects;
 

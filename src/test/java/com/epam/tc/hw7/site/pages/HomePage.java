@@ -23,7 +23,7 @@ public class HomePage extends WebPage {
     public static LoginForm loginForm;
     @Css("#user-name")
     public static Label userName;
-    @UI("//header//ul//li")
+    @UI(".navbar-nav.m-l8 li a")
     public static Menu headerMenu;
     @UI(".fa-sign-out")
     public static Button logout;
@@ -35,6 +35,9 @@ public class HomePage extends WebPage {
     }
 
     public static void logout() {
+        if (!logout.isVisible()) {
+            userIcon.click();
+        }
         logout.click();
     }
 

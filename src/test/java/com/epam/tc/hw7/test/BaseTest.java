@@ -11,6 +11,7 @@ import com.epam.tc.hw7.site.pages.HomePage;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
@@ -21,6 +22,7 @@ public class BaseTest {
 
     @BeforeSuite
     static void setUpSuite() {
+        WebDriverUtils.killAllSeleniumDrivers();
         initSite(JdiTestingSite.class);
     }
 
@@ -36,6 +38,10 @@ public class BaseTest {
     @AfterMethod(alwaysRun = true)
     static void teardown() {
         HomePage.logout();
+    }
+
+    @AfterSuite
+    static void driversKill() {
         WebDriverUtils.killAllSeleniumDrivers();
     }
 }
