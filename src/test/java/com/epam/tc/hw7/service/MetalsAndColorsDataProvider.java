@@ -1,6 +1,6 @@
 package com.epam.tc.hw7.service;
 
-import com.epam.tc.hw7.entities.MainContent;
+import com.epam.tc.hw7.entities.MetalsAndColors;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -13,7 +13,7 @@ public class MetalsAndColorsDataProvider {
     private static final String METALS_AND_COLORS_TEST_DATA_PATH =
             "src/test/resources/com.epam.tc.hw7/JDImetalsColorsDataSet.json";
 
-    @DataProvider(name = "MetalsAndColorsMainContent")
+    @DataProvider(name = "MetalsAndColors")
     public static Object[][] getDataFromJson()  {
         JsonObject metalsColorsMainContentData = null;
         try {
@@ -28,8 +28,8 @@ public class MetalsAndColorsDataProvider {
         JsonObject finalMetalsColorsMainContentData = metalsColorsMainContentData;
 
         return Objects.requireNonNull(metalsColorsMainContentData).keySet().stream()
-                .map(key -> gson.fromJson(finalMetalsColorsMainContentData.get(key), MainContent.class))
-                .map(value -> new MainContent[]{value})
+                .map(key -> gson.fromJson(finalMetalsColorsMainContentData.get(key), MetalsAndColors.class))
+                .map(value -> new MetalsAndColors[]{value})
                 .toArray(Object[][]::new);
     }
 }

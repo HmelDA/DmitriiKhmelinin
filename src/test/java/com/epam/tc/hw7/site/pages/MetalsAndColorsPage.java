@@ -7,10 +7,8 @@ import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.elements.pageobjects.annotations.Title;
 import com.epam.jdi.light.elements.pageobjects.annotations.Url;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
-import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
-import com.epam.jdi.light.ui.html.elements.common.Button;
-import com.epam.tc.hw7.entities.MainContent;
-import com.epam.tc.hw7.site.pages.forms.MainContentForm;
+import com.epam.tc.hw7.entities.MetalsAndColors;
+import com.epam.tc.hw7.site.pages.forms.MetalsAndColorsForm;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,10 +18,7 @@ import java.util.stream.Collectors;
 public class MetalsAndColorsPage extends WebPage {
 
     @Css(".form")
-    public MainContentForm mainContentForm;
-
-    @UI("#submit-button")
-    public static Button submitButton;
+    public MetalsAndColorsForm metalsAndColorsForm;
 
     @Css(".results li")
     private static List<UIElement> resultLogs;
@@ -34,11 +29,7 @@ public class MetalsAndColorsPage extends WebPage {
                 .collect(Collectors.toList());
     }
 
-    public static void areResultLogsTextEqualsToExpected(MainContent mainContent) {
-        assertThat(getResultLogsText()).isEqualTo(mainContent.testExpectedResults());
-    }
-
-    public static void clickSubmitButton() {
-        submitButton.click();
+    public static void areResultLogsTextEqualsToExpected(MetalsAndColors metalsAndColors) {
+        assertThat(getResultLogsText()).isEqualTo(metalsAndColors.testExpectedResults());
     }
 }

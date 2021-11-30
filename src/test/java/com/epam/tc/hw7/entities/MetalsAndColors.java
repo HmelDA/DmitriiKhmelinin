@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class MainContent extends DataClass<MainContent> {
+public class MetalsAndColors extends DataClass<MetalsAndColors> {
 
     private final List<Integer> summary;
     private final List<String> elements;
@@ -14,8 +14,8 @@ public class MainContent extends DataClass<MainContent> {
     private final String metals;
     private final List<String> vegetables;
 
-    public MainContent(List<Integer> summary, List<String> elements,
-                       String color, String metals, List<String> vegetables) {
+    public MetalsAndColors(List<Integer> summary, List<String> elements,
+                           String color, String metals, List<String> vegetables) {
         this.summary = summary;
         this.elements = elements;
         this.color = color;
@@ -58,7 +58,7 @@ public class MainContent extends DataClass<MainContent> {
         if (!super.equals(o)) {
             return false;
         }
-        MainContent that = (MainContent) o;
+        MetalsAndColors that = (MetalsAndColors) o;
         return Objects.equals(summary, that.summary)
                 && Objects.equals(elements, that.elements)
                 && Objects.equals(color, that.color)

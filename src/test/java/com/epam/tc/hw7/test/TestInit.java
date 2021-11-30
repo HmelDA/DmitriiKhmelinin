@@ -8,16 +8,12 @@ import com.epam.tc.hw7.entities.User;
 import com.epam.tc.hw7.service.UserCreator;
 import com.epam.tc.hw7.site.JdiTestingSite;
 import com.epam.tc.hw7.site.pages.HomePage;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
-@Feature("Base Test for Main Page and Different Elements Page")
-@Story("Set Up class, perform login, clear objects")
-public class BaseTest {
+public class TestInit {
     public static User DEFAULT_USER = UserCreator.withCredentialsFromProperty();
 
     @BeforeSuite
@@ -33,7 +29,6 @@ public class BaseTest {
         assertThat(HomePage.userName.text())
                 .isEqualTo(DEFAULT_USER.getName());
     }
-
 
     @AfterMethod(alwaysRun = true)
     static void teardown() {

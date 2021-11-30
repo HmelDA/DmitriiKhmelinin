@@ -7,12 +7,12 @@ import java.util.Properties;
 
 public class LoginDataProvider {
 
-    public static String getLoginData(String needed) {
+    public static String getLoginData(String loginProperty) {
         String data = null;
         try (InputStream loginData = new FileInputStream("src/test/resources/com.epam.tc.hw6/login.properties")) {
             Properties forLogin = new Properties();
             forLogin.load(loginData);
-            data = forLogin.getProperty(needed);
+            data = forLogin.getProperty(loginProperty);
         } catch (IOException ex) {
             ex.printStackTrace();
         }

@@ -7,9 +7,10 @@ import com.epam.jdi.light.elements.composite.Form;
 import com.epam.jdi.light.elements.interfaces.base.HasClick;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.JDropdown;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
-import com.epam.tc.hw7.entities.MainContent;
+import com.epam.jdi.light.ui.html.elements.common.Button;
+import com.epam.tc.hw7.entities.MetalsAndColors;
 
-public class MainContentForm extends Form<MainContent> {
+public class MetalsAndColorsForm extends Form<MetalsAndColors> {
 
     @UI(".radio")
     public static JList<Label> summary;
@@ -35,20 +36,27 @@ public class MainContentForm extends Form<MainContent> {
             expand = ".caret")
     public static Dropdown vegetables;
 
+    @UI("#submit-button")
+    public static Button submitButton;
+
+    public static void clickSubmitButton() {
+        submitButton.click();
+    }
+
     @Override
-    public void fill(MainContent mainContent) {
+    public void fill(MetalsAndColors metalsAndColors) {
         summary.stream()
-                .filter(number -> number.getValue().equals(mainContent.getSummaryStringValue(0))
-                        || number.getValue().equals(mainContent.getSummaryStringValue(1)))
+                .filter(number -> number.getValue().equals(metalsAndColors.getSummaryStringValue(0))
+                        || number.getValue().equals(metalsAndColors.getSummaryStringValue(1)))
                 .forEach(HasClick::click);
 
         elements.stream()
-                .filter(element -> mainContent.getElements().contains(element.getValue()))
+                .filter(element -> metalsAndColors.getElements().contains(element.getValue()))
                 .forEach(HasClick::click);
 
-        colors.select(mainContent.getColor());
-        metals.select(mainContent.getMetals());
+        colors.select(metalsAndColors.getColor());
+        metals.select(metalsAndColors.getMetals());
         vegetables.select(vegetables.selected());
-        mainContent.getVegetables().forEach(vegetable -> vegetables.select(vegetable));
+        metalsAndColors.getVegetables().forEach(vegetable -> vegetables.select(vegetable));
     }
 }
