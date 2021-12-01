@@ -1,0 +1,10 @@
+java -jar D:\SeleniumGrid\selenium-server-standalone-3.141.59.jar -role hub
+
+
+chrome node:
+
+java -Dwebdriver.chrome.driver=D:/SeleniumGrid/chromedriver/chromedriver.exe -jar D:\SeleniumGrid\selenium-server-standalone-3.141.59.jar -role node -hub http://192.168.1.125:4444/grid/register/ -browser "browserName=chrome,maxInstances=2" -port 5557
+
+firefox node:
+
+java -Dwebdriver.gecko.driver=D:/SeleniumGrid/geckodriver/geckodriver.exe -jar D:\SeleniumGrid\selenium-server-standalone-3.141.59.jar -role node -hub http://192.168.1.125:4444/grid/register/ -browser "browserName=firefox,maxInstances=2" -port 5558
