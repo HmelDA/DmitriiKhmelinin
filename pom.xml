@@ -82,13 +82,17 @@
             <properties>
                 <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw7/MetalsAndColorsFormSubmitTestSuite.xml</test.suite.name>
             </properties>
+        </profile>
+        <profile>
+            <id>homework09-trello-api-test-suite</id>
+            <properties>
+                <test.suite.name>${project.basedir}/src/test/resources/com.epam.tc.hw9/TrelloTestSuite.xml</test.suite.name>
+            </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
         </profile>
     </profiles>
-
-
 
     <dependencies>
         <dependency>
@@ -237,7 +241,7 @@
                 <version>1.1.1</version>
                 <configuration>
                     <sourceDirectory>${basedir}/src/test/resources/com.epam.tc.hw9/schemes</sourceDirectory>
-                    <outputDirectory>${basedir}/src/main/java/com/epam/tc/hw9</outputDirectory>
+                    <outputDirectory>${basedir}/src/main/java</outputDirectory>
                     <targetPackage>beans</targetPackage>
                     <addCompileSourceRoot>true</addCompileSourceRoot>
                     <sourceType>json</sourceType>

@@ -1,4 +1,4 @@
-package com.epam.tc.hw9.environment;
+package environment;
 
 public enum Constants {
     KEY("74ecb1e868a46b2e1513f84af0e8ac6a"),
