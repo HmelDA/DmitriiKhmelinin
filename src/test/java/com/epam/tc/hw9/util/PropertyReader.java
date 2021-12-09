@@ -1,10 +1,11 @@
-package util;
+package com.epam.tc.hw9.util;
 
 import java.util.ResourceBundle;
 
 public class PropertyReader {
 
-    private static final ResourceBundle trelloBundle = ResourceBundle.getBundle("com.epam.tc.hw9.Trello");
+    private static final ResourceBundle trelloBundle = ResourceBundle.getBundle(
+            "Trello");
 
     public static String trelloKey() {
         return trelloBundle.getString("trello.key");

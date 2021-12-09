@@ -1,18 +1,15 @@
 package environment;
 
-public enum Constants {
-    KEY("74ecb1e868a46b2e1513f84af0e8ac6a"),
-    TOKEN("92c25dda00b665a0fe64f4fcdd999f862ac9e6fdbdef1e84f3b4093cc7a93199"),
-    BASE_URL("https://api.trello.com");
+public class Constants {
 
+    public static final String KEY = "key";
+    public static final String TOKEN = "token";
+    public static final String ID = "id";
+    public static final String NAME = "name";
+    public static final String DESCRIPTION = "desc";
+    public static final String IS_CLOSED = "closed";
+    public static final String ID_BOARD = "idBoard";
+    public static final String ID_LIST = "idList";
+    public static final String NOT_FOUND_MESSAGE = "Not found";
 
-    private String constant;
-
-    private Constants(String constant) {
-        this.constant = constant;
-    }
-
-    public String getConstant() {
-        return constant;
-    }
 }
