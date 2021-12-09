@@ -10,8 +10,6 @@ public class RandomStringGenerator {
         int length = random.ints(1, 100)
                 .findFirst()
                 .getAsInt();
-        boolean useLetters = true;
-        boolean useNumbers = true;
-        return RandomStringUtils.random(length, useLetters, useNumbers);
+        return RandomStringUtils.random(length, true, true);
     }
 }

@@ -8,9 +8,8 @@ import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
-import org.apache.http.HttpStatus;
-
 import java.net.URI;
+import org.apache.http.HttpStatus;
 
 public class Specifications {
 

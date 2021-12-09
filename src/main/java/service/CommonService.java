@@ -15,6 +15,7 @@ import io.restassured.specification.ResponseSpecification;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
+import util.PropertyReader;
 
 public class CommonService {
 
@@ -40,9 +41,8 @@ public class CommonService {
                 .given(Specifications.requestSpecification(url)).log().all()
                 .pathParams(pathParameters)
                 .queryParams(queryParameters)
-                .queryParam(KEY, "74ecb1e868a46b2e1513f84af0e8ac6a")
-                .queryParam(TOKEN, "92c25dda00b665a0fe64f4fcdd999f86"
-                        + "2ac9e6fdbdef1e84f3b4093cc7a93199")
+                .queryParam(KEY, PropertyReader.trelloKey())
+                .queryParam(TOKEN, PropertyReader.trelloToken())
                 .request(requestedMethod, convertToString())
                 .prettyPeek();
     }

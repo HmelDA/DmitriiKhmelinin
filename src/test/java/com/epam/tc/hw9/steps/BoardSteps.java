@@ -1,26 +1,28 @@
 package com.epam.tc.hw9.steps;
 
+import static environment.Constants.DEFAULT_LISTS;
+import static environment.Constants.DESCRIPTION;
+import static environment.Constants.IS_CLOSED;
+import static environment.Constants.NAME;
+import static service.CommonService.commonApiBuilder;
+import static service.CommonService.extractBoardFromJson;
+import static service.CommonService.sendRequestAndGetResponse;
+
 import beans.Board;
-import com.epam.tc.hw9.util.PropertyReader;
 import io.qameta.allure.Step;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
+import java.net.URI;
 import service.CommonService;
 import service.Specifications;
+import util.PropertyReader;
 import util.RandomStringGenerator;
-
-import java.net.URI;
-
-import static environment.Constants.*;
-import static service.CommonService.*;
 
 
 public class BoardSteps {
 
     public static final String BOARD_URI = "boards/";
-    static String wv = PropertyReader.baseUrl() + BOARD_URI;
-    //static String wv = "https://api.trello.com/1/boards/";
-    public static final URI BOARD_URL = URI.create(wv);
+    public static final URI BOARD_URL = URI.create(PropertyReader.baseUrl() + BOARD_URI);
     public static String NEW_BOARD_NAME = RandomStringGenerator.generateString();
     public static String NEW_DESCRIPTION = RandomStringGenerator.generateString();
     public static String NEW_ACCESS = "true";
@@ -29,7 +31,8 @@ public class BoardSteps {
     public String newBoardCreation(Board board) {
         CommonService.CommonApiBuilder api = commonApiBuilder()
                 .setMethod(Method.POST)
-                .setQueryParameter(NAME, board.getName());
+                .setQueryParameter(NAME, board.getName())
+                .setQueryParameter(DEFAULT_LISTS, "false");
 
         return extractBoardFromJson(sendRequestAndGetResponse(
                 api, Specifications.responseSpecificationOK200(), BOARD_URL)).getId();
@@ -54,13 +57,22 @@ public class BoardSteps {
 
     @Step("Get deleted board")
     public Response getDeletedBoard(String boardID) {
-
-        CommonService.CommonApiBuilder builder = commonApiBuilder()
-                .setMethod(Method.GET)
+        CommonService.CommonApiBuilder api = commonApiBuilder()
                 .setId(boardID);
 
         return sendRequestAndGetResponse(
-                builder, Specifications.responseSpecificationNotFound404(), BOARD_URL);
+                api, Specifications.responseSpecificationNotFound404(), BOARD_URL);
+    }
+
+    @Step("Change deleted board name")
+    public Response changeDeletedBoardName(String boardID) {
+
+        CommonService.CommonApiBuilder api = commonApiBuilder()
+                .setMethod(Method.PUT)
+                .setId(boardID);
+        api.setQueryParameter(NAME, NEW_BOARD_NAME);
+        return sendRequestAndGetResponse(
+                api, Specifications.responseSpecificationNotFound404(), BOARD_URL);
     }
 
     @Step("Change board name")

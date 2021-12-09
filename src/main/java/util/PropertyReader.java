@@ -1,4 +1,4 @@
-package com.epam.tc.hw9.util;
+package util;
 
 import java.util.ResourceBundle;
 

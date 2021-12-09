@@ -3,7 +3,7 @@
 <suite name="Trello Test Suite">
     <test name="Trello Test">
         <packages>
-            <package name="src/test/java/com/epam/tc/hw9/test"/>
+            <package name="com.epam.tc.hw9.test"/>
         </packages>
     </test>
 </suite>
